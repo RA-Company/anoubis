@@ -1,8 +1,8 @@
-require "anubis/engine"
+require "anoubis/engine"
 
 ##
 # Anoubis library
-module Anubis
+module Anoubis
   module HasManualOrder
     extend ActiveSupport::Concern
 
@@ -210,4 +210,4 @@ module Anubis
   end
 end
 
-ActiveRecord::Base.send :include, Anubis::HasManualOrder
+ActiveRecord::Base.send :include, Anoubis::HasManualOrder

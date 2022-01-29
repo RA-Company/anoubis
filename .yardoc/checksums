@@ -1,4 +1,4 @@
-lib/anoubis.rb 57a2152596fb13d037e3c8a594ad62f13eb624a9
+lib/anoubis.rb 5127bcbb933c7286807412940f578eb7ddca7f49
 lib/anoubis/engine.rb b606b480e6dc63c083f8762cdddf3b67622c4d0b
 lib/anoubis/version.rb e6808a4275725ddf69981c9b9932180bfacaaa95
 app/controllers/anoubis/etc.rb 8ee6aff19c5067a4759ef891b1e29ab251c0f719
@@ -36,6 +36,7 @@ app/controllers/anoubis/core/data/get.rb a3441ab26d1e670452c3750fec022f9ead18244
 app/controllers/anoubis/core/data/set.rb c01cc75290b25b8d0e10712f36e8527e6c556160
 app/controllers/anoubis/output/delete.rb f79be93efc5606fa4b1154b49db64c1ef7a66f66
 app/controllers/anoubis/output/update.rb 51ab42803f432af4cd20f7fe8327e3676e89ba66
+app/models/anoubis/application_record.rb f3b347d9ee67898e8d46dcb990dc0797aef78356
 app/models/anoubis/tenant/menu_locale.rb 69b6394d0fe1dced106f09213bcdaf0b12eeb2b4
 app/models/anoubis/tenant/system_menu.rb 5126ce0166ffe99880f5f2bb569b0a8d3f50dfd0
 app/controllers/anoubis/core/data/load.rb d3359ba311d640bd795cc49fa13aab1b2821d7c3
@@ -75,7 +76,7 @@ app/models/anoubis/tenant/application_record.rb 0617ee72b4b1586cad16966a8e13b05b
 app/controllers/anoubis/core/index_controller.rb 8340a3c5fd960cf94a220ed46d9ad1d2e1b68360
 app/controllers/anoubis/sso/client/data/setup.rb 6eeca2c5e789bf2d4ba7b6888fe6f29747f679db
 app/controllers/anoubis/tenant/data/callbacks.rb 3b5ac6ce4e348b7bc0330f0576fc467caecf00a0
-app/controllers/anoubis/application_controller.rb f85ab42064319f5ed1a103ab6482d22b2030e167
+app/controllers/anoubis/application_controller.rb f7bc4f9e4ffd7b44f54db43ec6b5953fa4b794c2
 app/controllers/anoubis/tenant/data_controller.rb f01fd7567e2482acb88b9e30582b56ef15c8c1db
 app/controllers/anoubis/tenant/index/callbacks.rb 7a46d8142c4ae13b28255305c9a2d26bb3ddfedd
 app/controllers/anoubis/sso/client/data/actions.rb 3ce5dad96764424ef35c8543ddeb5a1ec35092fb

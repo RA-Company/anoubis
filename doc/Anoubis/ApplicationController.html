@@ -154,7 +154,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#redis-instance_method" title="#redis (instance method)">#<strong>redis</strong>  &#x21d2; Object </a>
+      <a href="#redis-instance_method" title="#redis (instance method)">#<strong>redis</strong>  &#x21d2; Class </a>
     
 
     
@@ -172,7 +172,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Redis database variable.</p>
+<p>Returns <a href="https://github.com/redis/redis-rb" target="_parent" title="Redis database">Redis database</a> class.</p>
 </div></span>
   
 </li>
@@ -221,6 +221,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#check_origin-instance_method" title="#check_origin (instance method)">#<strong>check_origin</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check current origin of header.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#default_locale-instance_method" title="#default_locale (instance method)">#<strong>default_locale</strong>  &#x21d2; String </a>
     
 
@@ -237,6 +261,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns default locale initialized in application configuration file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">#<strong>options</strong>(methods = &#39;POST&#39;)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates options headers for CORS requests.</p>
 </div></span>
   
 </li>
@@ -323,7 +371,7 @@
       <div class="method_details ">
   <h3 class="signature " id="redis-instance_method">
   
-    #<strong>redis</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>redis</strong>  &#x21d2; <tt>Class</tt> 
   
 
   
@@ -332,13 +380,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Redis database variable</p>
+<p>Returns <a href="https://github.com/redis/redis-rb" target="_parent" title="Redis database">Redis database</a> class</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Class</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p><a href="https://github.com/redis/redis-rb" target="_parent" title="Redis">Redis</a> class reference</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -430,7 +496,66 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="default_locale-instance_method">
+  <h3 class="signature first" id="check_origin-instance_method">
+  
+    #<strong>check_origin</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check current origin of header. By default origin always valid</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>request host origin validation</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/anoubis/application_controller.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_check_origin'>check_origin</span>
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="default_locale-instance_method">
   
     #<strong>default_locale</strong>  &#x21d2; <tt>String</tt> 
   
@@ -441,7 +566,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns default locale initialized in application configuration file. Variable is taken from <a href="https://guides.rubyonrails.org/i18n.html" target="_parent" title="Rails.configuration.I18n.default_locale">Rails.configuration.I18n.default_locale</a> parameter</p>
+<p>Returns default locale initialized in application configuration file. Variable is taken from <a href="https://guides.rubyonrails.org/i18n.html" target="_parent" title="Rails.configuration.i18n.default_locale">Rails.configuration.i18n.default_locale</a> parameter</p>
 
 
   </div>
@@ -481,7 +606,80 @@
       <pre class="code"><span class="info file"># File 'app/controllers/anoubis/application_controller.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_locale'>default_locale</span>
-  <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_default_locale'>default_locale</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_i18n'>i18n</span><span class='period'>.</span><span class='id identifier rubyid_default_locale'>default_locale</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options-instance_method">
+  
+    #<strong>options</strong>(methods = &#39;POST&#39;)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates options headers for CORS requests</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>methods</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;POST&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>list of allowed HTTP actions separated by space <em>(e.g. &#39;GET POST DELETE&#39;)</em></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/anoubis/application_controller.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span><span class='lparen'>(</span><span class='id identifier rubyid_methods'>methods</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>POST</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_check_origin'>check_origin</span>
+    <span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Access-Control-Allow-Origin</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>origin</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Access-Control-Allow-Methods</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_methods'>methods</span>
+    <span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Access-Control-Max-Age</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1000</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Access-Control-Allow-Headers</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>*,x-requested-with,Content-Type,Authorization</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -514,26 +712,26 @@
       <pre class="lines">
 
 
-43
-44
-45
-46
-47
-48
 49
 50
 51
-52</pre>
+52
+53
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/anoubis/application_controller.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/anoubis/application_controller.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pba_anoubis_application'>pba_anoubis_application</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:locale</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span> <span class='symbol'>:locale</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=</span> <span class='id identifier rubyid_default_locale'>default_locale</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=</span> <span class='id identifier rubyid_default_locale'>default_locale</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>begin</span>
-    <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span>
+    <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=</span> <span class='id identifier rubyid_locale'>locale</span>
   <span class='kw'>rescue</span>
     <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span> <span class='op'>=</span> <span class='id identifier rubyid_default_locale'>default_locale</span>
   <span class='kw'>end</span>
@@ -548,7 +746,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jan 29 20:33:06 2022 by
+  Generated on Sat Jan 29 21:53:42 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.1).
 </div>

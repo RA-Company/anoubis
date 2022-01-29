@@ -11,15 +11,21 @@ class Anoubis::ApplicationController < ActionController::API
   attr_accessor :locale
 
   ##
-  # Returns default locale initialized in application configuration file. Variable is taken from {https://guides.rubyonrails.org/i18n.html Rails.configuration.I18n.default_locale} parameter
+  # Returns default locale initialized in application configuration file. Variable is taken from {https://guides.rubyonrails.org/i18n.html Rails.configuration.i18n.default_locale} parameter
   # @return [String] default locale
   def default_locale
-    Rails.configuration.I18n.default_locale.to_s
+    Rails.configuration.i18n.default_locale.to_s
   end
 
   ## Returns {https://github.com/redis/redis-rb Redis} prefix for storing cache data
   attr_accessor :redis_prefix
 
+  ##
+  # Returns {https://github.com/redis/redis-rb Redis database} class
+  # @return [Class] {https://github.com/redis/redis-rb Redis} class reference
+  def redis
+    @redis ||= Redis.new
+  end
 
   ##
   # Returns {https://github.com/redis/redis-rb Redis} prefix for storing cache data. Prefix can be set in Rails.configuration.anoubis_redis_prefix configuration parameter.
@@ -30,7 +36,7 @@ class Anoubis::ApplicationController < ActionController::API
 
   private def get_redis_prefix
     begin
-      value = Rails.configuration.redis_prefix
+      value = Rails.configuration.anoubis_redis_prefix
     rescue
       return ''
     end
@@ -45,9 +51,28 @@ class Anoubis::ApplicationController < ActionController::API
     self.locale = default_locale unless self.locale
     self.locale = default_locale if self.locale == ''
     begin
-      I18n.locale = self.locale
+      I18n.locale = locale
     rescue
       I18n.locale = default_locale
     end
+  end
+
+  ##
+  # Generates options headers for CORS requests
+  # @param methods [String] list of allowed HTTP actions separated by space <i>(e.g. 'GET POST DELETE')</i>
+  def options(methods = 'POST')
+    if check_origin
+      headers['Access-Control-Allow-Origin'] = request.headers['origin']
+      headers['Access-Control-Allow-Methods'] = methods
+      headers['Access-Control-Max-Age'] = '1000'
+      headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,Authorization'
+    end
+  end
+
+  ##
+  # Check current origin of header. By default origin always valid
+  # @return [Boolean] request host origin validation
+  def check_origin
+    true
   end
 end
