@@ -1,0 +1,120 @@
+en:
+  success: Successful
+  errors:
+    no_api_version: API version not defined
+    invalid_locale: Invalid locale
+    access_not_allowed: Access not allowed
+    authentication_required: Authentication required
+    session_expired: Session expired
+    invalid_login_parameters: Invalid login parameters. Required 'login' and 'password'.
+    invalid_login_or_password: Invalid login or password
+    invalid_menu_output: Invalid menu output
+    internal_error: Internal error
+    update_error: Error updating data on server
+    delete_error: Error deleting data on server
+    incorrect_parameters: Incorrect request parameters
+    field_error: field error
+  install:
+    menu:
+      anoubis/admin:
+        title: Administration
+        page_title: System administration
+      anoubis/tenants:
+        title: Tenants
+        page_title: Tenants management
+        short_title: Tenants
+      anoubis/users:
+        title: Users
+        page_title: Users management
+        short_title: Users
+
+  anoubis:
+    default_tab: Default
+    default_tab_hint: This is default tab
+    install:
+      groups:
+        admin: Administrators
+        user: Users
+
+      tenant_title: System Tenant
+      system_title: Main System
+      admins_group: Administrators
+      admin_name: Administrator
+      admin_surname: Main
+    table:
+      buttons:
+        edit: "Edit: %{title}"
+        delete: "Delete: %{title}"
+    form:
+      titles:
+        edit: "Edit element: %{title}"
+        new: "Add new element"
+
+    tenants:
+      errors:
+        cant_change_ident: of system tetnant can't be changed
+        cant_destroy: System tetant can't be destroyed
+        has_childs: Tenant has child users or systems access
+    systems:
+      errors:
+        cant_change_ident: of main system can't be changed
+        cant_destroy: Main system can't be destroyed
+        has_childs: System has child groups
+    groups:
+      errors:
+        cant_change_admin_ident: of admin group can't be changed
+        cant_destroy_admin_group: Admin group of main system can't be destroyed
+        cant_destroy_group_with_users: Can't destroy group with users in it
+    users:
+      errors:
+        different_passwords: must be identical
+        cant_destroy_tenant_admin: Main Administrator can't be destroyed
+    menus:
+      errors:
+        has_childs: This menu has child sub menu
+    group_menus:
+      errors:
+        no_access: System of this group has no access to this menu
+
+  activerecord:
+    attributes:
+      anoubis/tenant/tenant:
+        title: Title
+        ident: Identifier
+      anoubis/tenant/system:
+        title: Title
+        ident: Identifier
+      anoubis/tenant/group:
+        title: Title
+        ident: Identifier
+      anoubis/tenant/user:
+        login: Login
+        email: Email
+        name: Name
+        surname: Surname
+        timezone: Timezone
+        password: Password
+        password_confirmation: Password confirmation
+        phone: Phone
+        auth_key: Authorization key
+        recover_key: Recovery key
+        status: Status
+        tenant: Tenant
+        timeout: Session timeout
+      anoubis/tenant/user_group:
+        group: Group
+        group_id: Group
+        user: User
+      anoubis/tenant/tenant_system:
+        tenant: Tenant
+        system: System
+      anoubis/tenant/menu:
+        mode: Path
+        action: Action
+        page_size: Page Size
+        position: Position
+      anoubis/tenant/menu_locale:
+        title: Title
+        page_title: Page Title
+        short_title: Short Title
+

@@ -1,0 +1,245 @@
+ru:
+  all: Все
+  success: Успешное завершение
+  actions:
+      edit: "Редактировать: %{title}"
+      delete: "Удалить: %{title}"
+  errors:
+    no_api_version: Не указана версия API
+    invalid_locale: Некорректная версия локали
+    access_not_allowed: Доступ запрещен
+    authentication_required: Требуется авторизация пользователя
+    session_expired: Сессия завершена
+    invalid_login_parameters: Некорректные параметры входа. Требуется задать 'login' и 'password'.
+    invalid_login_or_password: Некорректный логин или пароль.
+    invalid_menu_output: Некорректный вывод меню
+    internal_error: Внутренняя ошибка сервера
+    update_error: Ошибка обновления данных на сервере
+    delete_error: Ошибка удаления данных на сервере
+    incorrect_parameters: Некорректные параметры запроса
+    field_error: ошибка поля
+  install:
+    menu:
+      anoubis/admin:
+        title: Управление
+        page_title: Управление системой
+      anoubis/tenants:
+        title: Тенанты
+        page_title: Управление тенантами
+        short_title: Тенанты
+      anoubis/users:
+        title: Пользователи
+        page_title: Управление пользователями
+        short_title: Пользователи
+
+  anoubis:
+    core:
+      success: Завершено корректно
+      errors:
+        incorrect_system: Некорректная система
+        incorrect_parameters: Некорректные параметры
+        error_changing_data: Ошибка изменения данных
+
+    default_tab: Основная
+    default_tab_hint: Это основная вкладка
+    months:
+      main:
+        - Январь
+        - Февраль
+        - Март
+        - Апрель
+        - Май
+        - Июнь
+        - Июль
+        - Август
+        - Сентябрь
+        - Октябрь
+        - Ноябрь
+        - Декабрь
+      second:
+        - Января
+        - Февраля
+        - Марта
+        - Апреля
+        - Мая
+        - Июня
+        - Июля
+        - Августа
+        - Сентября
+        - Октября
+        - Ноября
+        - Декабря
+      short:
+        - янв
+        - фев
+        - мар
+        - апр
+        - май
+        - июн
+        - июл
+        - авг
+        - сен
+        - окт
+        - ноя
+        - дек
+    install:
+      groups:
+        admin: Администраторы
+        user: Пользователи
+
+      tenant_title: Основной тенант
+      system_title: Основная система
+      admins_group: Администраторы
+      admin_name: Администратор
+      admin_surname: Главный
+    table:
+      buttons:
+        edit: "Редактировать: %{title}"
+        delete: "Удалить: %{title}"
+    form:
+      titles:
+        edit: "Редактирование элемента: %{title}"
+        show: "Просмотр элемента: %{title}"
+        new: "Добавление нового элемента"
+
+    tenants:
+      errors:
+        cant_change_ident: основного тенанта изменить нельзя
+        cant_destroy: Невозможно удалить основной тенант
+        has_childs: Тенант содержит пользователей или имеет доступ к системам
+    systems:
+      errors:
+        cant_change_ident: основной системы изменить нельзя
+        cant_destroy: Невозможно удалить основную систему
+        has_childs: Система содержит группы
+    groups:
+      errors:
+        cant_change_admin_ident: группы администрирования изменить нельзя
+        cant_destroy_admin_group: Группа администраторов основной системы не может быть удалена
+        cant_destroy_group_with_users: Нельзя удалить группу содержащую пользователей
+    users:
+      errors:
+        different_passwords: должен быть идентичным
+        cant_destroy_tenant_admin: Главный Администратор не может быть удален
+    menus:
+      errors:
+        has_childs: Меню имеет вложенные пункты меню
+    group_menus:
+      errors:
+        no_access: Система которой принадлежит группа не имеет доступа к данному пункту меню
+
+  activerecord:
+    options:
+      anoubis/locale:
+        ru: Русский
+        en: Английский
+        kz: Казахский
+      anoubis/group_menu:
+        access:
+          not: Не определен
+          read: Чтение
+          write: Запись
+          disabled: Блокирован
+    attributes:
+      anoubis/tenant:
+        title: Название
+        ident: Идентификатор
+      anoubis/system:
+        title: Название
+        ident: Идентификатор
+      anoubis/group:
+        title: Название
+        ident: Идентификатор
+      anoubis/user:
+        login: Логин
+        email: Электронный адрес
+        name: Имя
+        surname: Фамилия
+        timezone: Временная зона
+        password: Пароль
+        password_confirmation: Повтор пароля
+        phone: Телефон
+        auth_key: Ключ авторизации
+        recover_key: Ключ восстановления
+        status: Статус
+        tenant: Тенант
+        timeout: Время завершения сессии
+      anoubis/user_group:
+        group: Группа
+        group_id: Группа
+        user: Пользователь
+      anoubis/tenant_system:
+        tenant: Тенант
+        system: Система
+      anoubis/menu:
+        mode: Путь
+        action: Действие
+        page_size: Количество строк таблицы
+        position: Позиция
+      anoubis/menu_locale:
+        title: Название
+        page_title: Заголовок страницы
+        short_title: Короткое название
+
+    errors:
+      messages:
+        not_in_tenant: отсутсвует в тенанте
+        required: должен существовать
+        too_short:
+          one: "должен быть длиннее одного символа"
+          other: "должен быть больше %{count} символов"
+        too_long:
+          one: "должен быть длиннее одного символа"
+          other: "должен быть короче %{count} символов"
+        invalid: некорректен
+        record_invalid: некорректен
+        taken: уже существует
+        blank: не может быть пустым
+        not_an_integer: должен быть целым числом
+        not_a_number: должен быть вещественным числом
+        greater_than_or_equal_to: "должен быть больше или равен %{count}"
+        less_than_or_equal_to: "должен быть меньше или равен %{count}"
+        inclusion: "значение не попадает в список"
+
+      models:
+        anoubis/tenant/tenant:
+          attributes:
+            title:
+              too_short: "должно быть больше %{count} символов"
+              too_long: "должно быть короче %{count} символов"
+        anoubis/tenant/system:
+          attributes:
+            title:
+              too_short: "должно быть больше %{count} символов"
+              too_long: "должно быть короче %{count} символов"
+        anoubis/tenant/user_group:
+          attributes:
+            group:
+              required: должна существовать
+        anoubis/tenant/user:
+          attributes:
+            name:
+              too_long: "должно быть короче %{count} символов"
+            surname:
+              blank: не может быть пустой
+              too_long: "должна быть короче %{count} символов"
+            timeout:
+              not_a_number: "должно быть целым числом"
+              greater_than_or_equal_to: "должно быть больше или равно %{count}"
+
+        anoubis/tenant/tenant_system:
+          attributes:
+            system:
+              required: должна существовать
+        anoubis/tenant/menu:
+          attributes:
+            position:
+              not_a_number: должна быть целым числом
+            page_size:
+              greater_than_or_equal_to: "должно быть больше или равно %{count}"
+        anoubis/tenant/menu_locale:
+          attributes:
+            title:
+              too_short: "должно быть больше %{count} символов"
+              too_long: "должно быть короче %{count} символов"
+
