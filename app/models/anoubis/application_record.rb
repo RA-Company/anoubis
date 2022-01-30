@@ -13,6 +13,13 @@ class Anoubis::ApplicationRecord < ActiveRecord::Base
   end
 
   ##
+  # Returns {https://github.com/redis/redis-rb Redis database} class
+  # @return [Class] {https://github.com/redis/redis-rb Redis} class reference
+  def self.redis
+    Redis.new
+  end
+
+  ##
   # Returns {https://github.com/redis/redis-rb Redis} prefix for storing cache data. Prefix can be set in Rails.configuration.anoubis_redis_prefix configuration parameter.
   # @return [String] {https://github.com/redis/redis-rb Redis} prefix
   def redis_prefix
