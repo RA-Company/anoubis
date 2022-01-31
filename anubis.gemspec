@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Anoubis API Backend System"
   s.description = "Backend API system for simplify creation administration pages and work with databases."
   s.license     = "MIT"
+  s.required_ruby_version = '>= 2.7.1'
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
