@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", ">= 6.1.0"
+  s.add_dependency "rails", ">= 7.0.0"
   s.add_dependency "redis", ">= 4.5.1"
   s.add_dependency "bcrypt", ">= 3.1.16"
   s.add_dependency "rest-client", ">= 2.1.0"

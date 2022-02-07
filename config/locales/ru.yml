@@ -1,6 +1,4 @@
 ru:
-  all: Все
-  success: Успешное завершение
   actions:
       edit: "Редактировать: %{title}"
       delete: "Удалить: %{title}"
@@ -32,7 +30,18 @@ ru:
         page_title: Управление пользователями
         short_title: Пользователи
 
+
+
+
+
+
   anoubis:
+    all: Все
+    success: Успешное завершение
+
+
+
+
     core:
       success: Завершено корректно
       errors:

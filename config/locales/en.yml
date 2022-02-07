@@ -1,5 +1,4 @@
 en:
-  success: Successful
   errors:
     no_api_version: API version not defined
     invalid_locale: Invalid locale
@@ -29,6 +28,12 @@ en:
         short_title: Users
 
   anoubis:
+    all: All
+    success: Successful
+
+
+
+
     default_tab: Default
     default_tab_hint: This is default tab
     install:
