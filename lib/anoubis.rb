@@ -19,7 +19,7 @@ module Anoubis
         send :after_destroy, :manual_order_after_destroy
 
         self.manual_order_options = params if params.is_a?(Hash)
-        include Anubis::HasManualOrder::LocalInstanceMethods
+        include Anoubis::HasManualOrder::LocalInstanceMethods
       end
     end
 

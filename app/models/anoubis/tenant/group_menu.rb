@@ -37,7 +37,7 @@ class Anoubis::Tenant::GroupMenu < Anoubis::Core::ApplicationRecord
       errors.add(:base, I18n.t('anubis.group_menus.errors.no_access'))
       throw(:abort, __method__)
     end
-    self.access = Anubis::Tenant::GroupMenu.accesses[:read] if !self.access
+    self.access = Anoubis::Tenant::GroupMenu.accesses[:read] if !self.access
   end
 
   ##
@@ -45,8 +45,8 @@ class Anoubis::Tenant::GroupMenu < Anoubis::Core::ApplicationRecord
   # doesn't present in database then adds this link to database with {#access} defined as 'read'.
   def after_create_group_menu
     if self.menu.menu_id != nil
-      Anubis::Tenant::GroupMenu.find_or_create_by(menu_id: self.menu.menu_id, group_id: self.group_id) do |menu|
-        menu.access = Anubis::Tenant::GroupMenu.accesses[:read]
+      Anoubis::Tenant::GroupMenu.find_or_create_by(menu_id: self.menu.menu_id, group_id: self.group_id) do |menu|
+        menu.access = Anoubis::Tenant::GroupMenu.accesses[:read]
       end
     end
     self.after_modify_group_menu
@@ -64,8 +64,8 @@ class Anoubis::Tenant::GroupMenu < Anoubis::Core::ApplicationRecord
   ##
   # Is called after link between menu and group had been deleted from database. It also deletes all child links.
   def after_destroy_group_menu
-    Anubis::Tenant::Menu.select(:id).where(menu_id: self.menu_id).each do |menu|
-      Anubis::Tenant::GroupMenu.where(menu_id: menu.id, group_id: self.group_id).each do |group_menu|
+    Anoubis::Tenant::Menu.select(:id).where(menu_id: self.menu_id).each do |menu|
+      Anoubis::Tenant::GroupMenu.where(menu_id: menu.id, group_id: self.group_id).each do |group_menu|
         group_menu.destroy
       end
     end

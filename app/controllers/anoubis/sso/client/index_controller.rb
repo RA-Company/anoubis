@@ -1,9 +1,9 @@
 require_dependency "anubis/sso/client/index/actions"
 require_dependency "anubis/sso/client/index/callbacks"
 
-class Anubis::Sso::Client::IndexController < Anubis::Sso::Client::ApplicationController
-  include Anubis::Sso::Client::Index::Actions
-  include Anubis::Sso::Client::Index::Callbacks
+class Anoubis::Sso::Client::IndexController < Anoubis::Sso::Client::ApplicationController
+  include Anoubis::Sso::Client::Index::Actions
+  include Anoubis::Sso::Client::Index::Callbacks
 
   ##
   # Check if authentication required

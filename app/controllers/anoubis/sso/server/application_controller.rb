@@ -1,9 +1,9 @@
-class Anubis::Sso::Server::ApplicationController < Anubis::Core::ApplicationController
+class Anoubis::Sso::Server::ApplicationController < Anoubis::Core::ApplicationController
   def user_model
     begin
       model = Rails.configuration.user_model.classify.constantize
     rescue
-      model = Anubis::Sso::Server::User
+      model = Anoubis::Sso::Server::User
     end
 
     model

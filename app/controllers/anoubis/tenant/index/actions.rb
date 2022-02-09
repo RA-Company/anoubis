@@ -1,10 +1,10 @@
-module Anubis
+module Anoubis
   module Tenant
     module Index
       ##
       # Module contains all basic actions for {IndexController}.
       module Actions
-        include Anubis::Core::Index::Actions
+        include Anoubis::Core::Index::Actions
 
         ##
         # <i>Login</i> action of index controller. Procedure checks user credential. If credentials are correct than user enters
@@ -28,7 +28,7 @@ module Anubis
         #
         # <b>Results:</b><br>
         #
-        # Resulting data is placed in self.output({Anubis::OutputLogin}) class and returns in JSON format.
+        # Resulting data is placed in self.output({Anoubis::OutputLogin}) class and returns in JSON format.
         #
         # <b>Examples:</b>
         #
@@ -48,18 +48,18 @@ module Anubis
         #     "message": "Incorrect user login or password"
         #   }
         def login
-          self.output = Anubis::Output::Login.new
+          self.output = Anoubis::Output::Login.new
           if params.has_key?(:login) && params.has_key?(:password)
-            user = Anubis::Tenant::User.where(login: params[:login].downcase, status: 0).first
+            user = Anoubis::Tenant::User.where(login: params[:login].downcase, status: 0).first
 
             if !user
-              tenant = Anubis::Tenant::Tenant.where(state: Anubis::Tenant::Tenant.states[:default]).first
-              user = Anubis::Tenant::User.where(login: (params[:login]+'.'+tenant.ident).downcase, status: 0).first
+              tenant = Anoubis::Tenant::Tenant.where(state: Anoubis::Tenant::Tenant.states[:default]).first
+              user = Anoubis::Tenant::User.where(login: (params[:login]+'.'+tenant.ident).downcase, status: 0).first
             end
 
             if !user
-              tenant = Anubis::Tenant::Tenant.find(1)
-              user = Anubis::Tenant::User.where(login: (params[:login]+'.'+tenant.ident).downcase, status: 0).first
+              tenant = Anoubis::Tenant::Tenant.find(1)
+              user = Anoubis::Tenant::User.where(login: (params[:login]+'.'+tenant.ident).downcase, status: 0).first
             end
 
             if user && user.authenticate(params[:password])
@@ -108,7 +108,7 @@ module Anubis
         #
         # <b>Results:</b><br>
         #
-        # Resulting data is placed in self.output({Anubis::Output::Menu}) variable and returns in JSON format.
+        # Resulting data is placed in self.output({Anoubis::Output::Menu}) variable and returns in JSON format.
         #
         # <b>Examples:</b>
         #
@@ -138,9 +138,9 @@ module Anubis
         #     "message": "Session expired"
         #   }
         def menu
-          self.output = Anubis::Output::Menu.new
-          access = Anubis::Tenant::GroupMenu.accesses[:read].to_s+','+Anubis::Tenant::GroupMenu.accesses[:write].to_s
-          locale = Anubis::Tenant::MenuLocale.locales[self.locale.to_s.to_sym]
+          self.output = Anoubis::Output::Menu.new
+          access = Anoubis::Tenant::GroupMenu.accesses[:read].to_s+','+Anoubis::Tenant::GroupMenu.accesses[:write].to_s
+          locale = Anoubis::Tenant::MenuLocale.locales[self.locale.to_s.to_sym]
           query = <<-SQL
           SELECT `t`.* FROM
             (
@@ -163,7 +163,7 @@ module Anubis
             )
           ORDER BY `t`.`menu_id`, `t`.`position`
           SQL
-          Anubis::Tenant::GroupMenu.find_by_sql(query).each do |data|
+          Anoubis::Tenant::GroupMenu.find_by_sql(query).each do |data|
             self.output.addElement({
                                      mode: data.mode,
                                      title: data.title,
@@ -173,7 +173,7 @@ module Anubis
                                      tab: data.tab,
                                      action: data.action,
                                      access: data.access,
-                                     state: Anubis::Tenant::Menu.states.invert[data.state],
+                                     state: Anoubis::Tenant::Menu.states.invert[data.state],
                                      parent: data.parent_mode
                                    })
             #self.output[:data].push menu_id[data.id.to_s.to_sym]

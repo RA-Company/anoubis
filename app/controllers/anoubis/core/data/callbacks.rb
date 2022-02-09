@@ -1,11 +1,11 @@
-module Anubis
+module Anoubis
   module Core
     module Data
       ##
       # Module presents all callbacks called in actions.
       module Callbacks
         ##
-        # Fires after data was received from server and placed in {Anubis::Output::Data#data self.output.data} array.
+        # Fires after data was received from server and placed in {Anoubis::Output::Data#data self.output.data} array.
         # It's rewrote for change data before output.
         def after_get_table_data
 
@@ -20,14 +20,14 @@ module Anubis
         end
 
         ##
-        # Fires after data was was updated on the server and placed in {Anubis::Output::Data#data self.output.data} array.
+        # Fires after data was was updated on the server and placed in {Anoubis::Output::Data#data self.output.data} array.
         # It's rewrote for change data before output.
         def after_update_data
 
         end
 
         ##
-        # Fires after data was was created in {Anubis::Output::Data#data self.output.data} array and before it saved to server.
+        # Fires after data was was created in {Anoubis::Output::Data#data self.output.data} array and before it saved to server.
         # It's rewrote for change data before output.
         # @param data [Hash] Data for create
         # @return [Hash] Processed data. If returned nil then update is terminated.
@@ -36,7 +36,7 @@ module Anubis
         end
 
         ##
-        # Fires after data was was created on the server and placed in {Anubis::Output::Data#data self.output.data} array.
+        # Fires after data was was created on the server and placed in {Anoubis::Output::Data#data self.output.data} array.
         # It's rewrote for change data before output.
         def after_create_data
 

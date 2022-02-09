@@ -1,5 +1,5 @@
 ##
 # Module presents all callbacks called in actions.
-module Anubis::Sso::Client::Data::Callbacks
-  include Anubis::Core::Data::Callbacks
+module Anoubis::Sso::Client::Data::Callbacks
+  include Anoubis::Core::Data::Callbacks
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module Anubis
+module Anoubis
   RSpec.describe User, type: :model do
     it "is valid" do
       expect(build_stubbed(:user)).to be_valid
@@ -49,7 +49,7 @@ module Anubis
     end
 
     it "can't destroy Main Administrator" do
-      user = Anubis::User.find(1)
+      user = Anoubis::User.find(1)
       user.destroy
       expect(user.destroyed?).to eq false
     end

@@ -1,7 +1,7 @@
 ##
 # Menu model. Stores information about all menu elements of the portal. Menu model defines the dependence
 # between controller and user access.
-class Anubis::Tenant::Menu < ApplicationRecord
+class Anoubis::Tenant::Menu < ApplicationRecord
   # Redefines default table name
   self.table_name = 'menus'
 
@@ -33,12 +33,12 @@ class Anubis::Tenant::Menu < ApplicationRecord
 
   # @!attribute menu
   #   @return [Menu, nil] the parent menu for element menu (if exists).
-  belongs_to :menu, class_name: 'Anubis::Tenant::Menu', optional: true
-  has_many :menus, class_name: 'Anubis::Tenant::Menu'
+  belongs_to :menu, class_name: 'Anoubis::Tenant::Menu', optional: true
+  has_many :menus, class_name: 'Anoubis::Tenant::Menu'
 
-  has_many :group_menus, class_name: 'Anubis::Tenant::GroupMenu'
-  has_many :system_menus, class_name: 'Anubis::Tenant::SystemMenu'
-  has_many :menu_locales, class_name: 'Anubis::Tenant::MenuLocale'
+  has_many :group_menus, class_name: 'Anoubis::Tenant::GroupMenu'
+  has_many :system_menus, class_name: 'Anoubis::Tenant::SystemMenu'
+  has_many :menu_locales, class_name: 'Anoubis::Tenant::MenuLocale'
 
   # @!attribute status
   #   @return ['enabled', 'disabled'] the status of menu element.
@@ -56,7 +56,7 @@ class Anubis::Tenant::Menu < ApplicationRecord
   # Is called before menu will be created in database. Sets {#position} as last {#position} + 1 on current {#tab}.
   # After this calls {#before_update_menu} for additional modification.
   def before_create_menu
-    data = Anubis::Tenant::Menu.where(menu_id: self.menu_id).maximum(:position)
+    data = Anoubis::Tenant::Menu.where(menu_id: self.menu_id).maximum(:position)
     self.position = if data then data + 1 else 0 end
 
     self.before_update_menu
@@ -72,7 +72,7 @@ class Anubis::Tenant::Menu < ApplicationRecord
     self.page_size = 20 if !self.page_size
     self.page_size = self.page_size.to_i
 
-    parent_menu = Anubis::Tenant::Menu.where(id: self.menu_id).first
+    parent_menu = Anoubis::Tenant::Menu.where(id: self.menu_id).first
     if parent_menu
       self.tab = parent_menu.tab + 1
     else
@@ -91,7 +91,7 @@ class Anubis::Tenant::Menu < ApplicationRecord
   # Is called before menu will be deleted from database. Checks the ability to destroy a menu. Delete
   # all translations for menu model from {MenuLocale}.
   def before_destroy_menu
-    Anubis::Tenant::MenuLocale.where(menu_id: self.id).each do |menu_locale|
+    Anoubis::Tenant::MenuLocale.where(menu_id: self.id).each do |menu_locale|
       menu_locale.destroy
     end
 
@@ -117,14 +117,14 @@ class Anubis::Tenant::Menu < ApplicationRecord
             SET menus.position = menus.position - 1
             WHERE menus.tab = #{self.tab} AND menus.position > #{self.position}
     SQL
-    Anubis::Tenant::Menu.connection.execute query
+    Anoubis::Tenant::Menu.connection.execute query
     #i = self.position
-    #Anubis::Tenant::Menu.where(menu_id: self.menu_id, position: (self.position+1..Float::INFINITY)).find_each do |menu|
+    #Anoubis::Tenant::Menu.where(menu_id: self.menu_id, position: (self.position+1..Float::INFINITY)).find_each do |menu|
     #        menu.position = i
     #        menu.save
     #        i += 1
     #      end
-    Anubis::Tenant::Menu.where(menu_id: self.id).find_each do |menu|
+    Anoubis::Tenant::Menu.where(menu_id: self.id).find_each do |menu|
       menu.destroy
     end
   end
@@ -133,7 +133,7 @@ class Anubis::Tenant::Menu < ApplicationRecord
   # Returns model localization data from {MenuLocale}.
   # @return [MenuLocale] localization for current menu
   def model_locale
-    @model_locale ||= self.menu_locales.where(locale: Anubis::Tenant::MenuLocale.locales[self.current_locale.to_sym]).first
+    @model_locale ||= self.menu_locales.where(locale: Anoubis::Tenant::MenuLocale.locales[self.current_locale.to_sym]).first
   end
 
   # @!attribute title

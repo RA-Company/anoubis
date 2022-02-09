@@ -1,14 +1,14 @@
-module Anubis
+module Anoubis
   module Output
     ##
     # Output subclass that represents data for menu action
     class Menu < Basic
       # @!attribute [rw] items
-      #   @return [Array] the array of menu elements {Anubis::Output::MenuItem}.
+      #   @return [Array] the array of menu elements {Anoubis::Output::MenuItem}.
       class_attribute :items
 
       # @!attribute [rw] keys
-      #   @return [Hash] the hash of menu elements {Anubis::Output::MenuItem} with 'mode' as a key.
+      #   @return [Hash] the hash of menu elements {Anoubis::Output::MenuItem} with 'mode' as a key.
       class_attribute :keys
 
       # @!attribute [rw] user

@@ -1,4 +1,4 @@
-class Anubis::Sso::Server::User < Anubis::Core::ApplicationRecord
+class Anoubis::Sso::Server::User < Anoubis::Core::ApplicationRecord
   has_secure_password
 
   self.table_name = 'users'

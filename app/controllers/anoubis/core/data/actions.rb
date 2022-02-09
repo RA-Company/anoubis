@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Core
     module Data
       ##
@@ -88,9 +88,9 @@ module Anubis
         #     ]
         #   }
         def index
-          self.etc.data = Anubis::Etc::Data.new
+          self.etc.data = Anoubis::Etc::Data.new
           self.set_parent_model 'index'
-          self.output = Anubis::Output::Data.new
+          self.output = Anoubis::Output::Data.new
           self.output.count = self.get_table_data_count
           self.setup_fields
           self.output.limit = self.etc.data.limit
@@ -186,8 +186,8 @@ module Anubis
         #     "tab": "inner"
         #   }
         def frame
-          self.output = Anubis::Output::Frame.new
-          self.etc.data = Anubis::Etc::Data.new if !self.etc.data
+          self.output = Anoubis::Output::Frame.new
+          self.etc.data = Anoubis::Etc::Data.new if !self.etc.data
           self.etc.action = 'frame'
           if self.parent_model
             if !self.get_parent_data
@@ -281,7 +281,7 @@ module Anubis
         #     "tab": "inner"
         #   }
         def show
-          self.output = Anubis::Output::Edit.new
+          self.output = Anoubis::Output::Edit.new
           self.set_parent_model 'show'
           self.output.tab = self.etc.tab.tab
           if params.key?(:value) && params.key?(:field)
@@ -388,7 +388,7 @@ module Anubis
         end
 
         def new_action_skeleton(action)
-          self.output = Anubis::Output::Edit.new
+          self.output = Anoubis::Output::Edit.new
           self.set_parent_model action
           self.output.tab = self.etc.tab.tab
           if self.etc.tab.buttons.key? action.to_sym
@@ -488,7 +488,7 @@ module Anubis
         #     "tab": "inner"
         #   }
         def create
-          self.output = Anubis::Output::Update.new
+          self.output = Anoubis::Output::Update.new
           self.set_parent_model 'create'
           self.output.tab = self.etc.tab.tab
           if params.key? :data
@@ -623,7 +623,7 @@ module Anubis
         #     "tab": "inner"
         #   }
         def edit
-          self.output = Anubis::Output::Edit.new
+          self.output = Anoubis::Output::Edit.new
           self.set_parent_model 'edit'
           self.output.tab = self.etc.tab.tab
           if self.table_actions.include?('edit')
@@ -728,7 +728,7 @@ module Anubis
         #     "tab": "inner"
         #   }
         def update
-          self.output = Anubis::Output::Update.new
+          self.output = Anoubis::Output::Update.new
           self.set_parent_model 'update'
           self.output.tab = self.etc.tab.tab
           if self.table_actions.include?('edit')
@@ -827,7 +827,7 @@ module Anubis
         #     "tab": "inner"
         #   }
         def destroy
-          self.output = Anubis::Output::Delete.new
+          self.output = Anoubis::Output::Delete.new
           self.set_parent_model 'destroy'
           self.output.tab = self.etc.tab.tab
           if self.etc.tab.buttons.key? :delete
@@ -862,7 +862,7 @@ module Anubis
         ##
         # Returns autocomplete data
         def autocomplete
-          self.output = Anubis::Output::Autocomplete.new
+          self.output = Anoubis::Output::Autocomplete.new
           self.output.result = -1
           self.set_parent_model 'autocomplete'
           self.output.tab = self.etc.tab.tab
@@ -890,15 +890,15 @@ module Anubis
         ##
         # Export data from database
         def export
-          self.etc.data = Anubis::Etc::Data.new
+          self.etc.data = Anoubis::Etc::Data.new
           self.set_parent_model 'export'
-          self.output = Anubis::Output::Data.new
+          self.output = Anoubis::Output::Data.new
           if self.etc.tab.export
             self.output.count = self.get_table_data_count
             count = (self.output.count / 40).to_i + 1
             self.setup_fields
 
-            self.exports = Anubis::Export.new format: self.export_format, fields: self.get_fields_properties
+            self.exports = Anoubis::Export.new format: self.export_format, fields: self.get_fields_properties
 
             case self.exports.format
             when 'xls'

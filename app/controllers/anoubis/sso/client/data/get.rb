@@ -1,5 +1,5 @@
 ##
 # Module gets system data for {DataController}
-module Anubis::Sso::Client::Data::Get
-  include Anubis::Core::Data::Get
+module Anoubis::Sso::Client::Data::Get
+  include Anoubis::Core::Data::Get
 end

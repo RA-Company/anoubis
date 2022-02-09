@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module Anubis
+module Anoubis
   RSpec.describe MenuLocale, type: :model do
     it "has short title" do
       expect(build_stubbed(:menu_locale, title: 'T'*2)).to be_invalid

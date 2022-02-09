@@ -1,6 +1,6 @@
 ##
 # Model links {Menu} and {Group}. Describes group access to menu.
-class Anubis::Sso::Client::GroupMenu < Anubis::Sso::Client::ApplicationRecord
+class Anoubis::Sso::Client::GroupMenu < Anoubis::Sso::Client::ApplicationRecord
   # Redefines default table name
   self.table_name = 'group_menus'
 
@@ -12,12 +12,12 @@ class Anubis::Sso::Client::GroupMenu < Anubis::Sso::Client::ApplicationRecord
 
   # @!attribute group
   #   @return [Group] reference to the {Group} model
-  belongs_to :group, :class_name => 'Anubis::Sso::Client::Group'
+  belongs_to :group, :class_name => 'Anoubis::Sso::Client::Group'
   validates :group, presence: true, uniqueness: { scope: [:menu_id] }
 
   # @!attribute menu
   #   @return [Menu] reference to the {Menu} model
-  belongs_to :menu, :class_name => 'Anubis::Sso::Client::Menu'
+  belongs_to :menu, :class_name => 'Anoubis::Sso::Client::Menu'
   validates :menu, presence: true, uniqueness: { scope: [:group_id] }
 
   # @!attribute access
@@ -41,7 +41,7 @@ class Anubis::Sso::Client::GroupMenu < Anubis::Sso::Client::ApplicationRecord
   # doesn't present in database then adds this link to database with {#access} defined as 'read'.
   def after_create_sso_client_group_menu
     if self.menu.menu_id != nil
-      Anubis::Sso::Client::GroupMenu.find_or_create_by(menu_id: self.menu.menu_id, group_id: self.group_id) do |menu|
+      Anoubis::Sso::Client::GroupMenu.find_or_create_by(menu_id: self.menu.menu_id, group_id: self.group_id) do |menu|
         menu.access = 'read'
       end
     end
@@ -60,8 +60,8 @@ class Anubis::Sso::Client::GroupMenu < Anubis::Sso::Client::ApplicationRecord
   ##
   # Is called after link between menu and group had been deleted from database. It also deletes all child links.
   def after_destroy_sso_client_group_menu
-    Anubis::Sso::Client::Menu.select(:id).where(menu_id: self.menu_id).each do |menu|
-      Anubis::Sso::Client::GroupMenu.where(menu_id: menu.id, group_id: self.group_id).each do |group_menu|
+    Anoubis::Sso::Client::Menu.select(:id).where(menu_id: self.menu_id).each do |menu|
+      Anoubis::Sso::Client::GroupMenu.where(menu_id: menu.id, group_id: self.group_id).each do |group_menu|
         group_menu.destroy
       end
     end

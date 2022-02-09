@@ -1,9 +1,9 @@
-class Anubis::Tenant::ApplicationController < Anubis::Core::ApplicationController
+class Anoubis::Tenant::ApplicationController < Anoubis::Core::ApplicationController
   ##
   # Get current user model
   # @return [ActiveRecord] defined user model. It is used for get current user data. May be redefined when user model is changed
   def get_user_model
-    Anubis::Tenant::User
+    Anoubis::Tenant::User
   end
 
   ##
@@ -20,7 +20,7 @@ class Anubis::Tenant::ApplicationController < Anubis::Core::ApplicationControlle
     menu_access_status = redis.get self.redis_prefix + self.current_user.uuid+'_'+controller
 
     if !menu_access_status
-      access = Anubis::Tenant::GroupMenu.accesses[:read].to_s+','+Anubis::Tenant::GroupMenu.accesses[:write].to_s
+      access = Anoubis::Tenant::GroupMenu.accesses[:read].to_s+','+Anoubis::Tenant::GroupMenu.accesses[:write].to_s
       query = <<-SQL
           SELECT `t`.* FROM
             (SELECT `menus`.`id`, `menus`.`mode`, `menus`.`action`, `menus`.`menu_id`,
@@ -33,7 +33,7 @@ class Anubis::Tenant::ApplicationController < Anubis::Core::ApplicationControlle
             WHERE `t`.`access` IN (#{access})
             ORDER BY `t`.`menu_id`
       SQL
-      menu = Anubis::Tenant::GroupMenu.find_by_sql(query).first
+      menu = Anoubis::Tenant::GroupMenu.find_by_sql(query).first
       if (!menu)
         redis.set self.redis_prefix + self.current_user.uuid+'_'+controller, 'not'
         self.error_exit({ error: I18n.t('errors.access_not_allowed') }) if exit

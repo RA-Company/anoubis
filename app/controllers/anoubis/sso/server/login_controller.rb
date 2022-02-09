@@ -1,4 +1,4 @@
-class Anubis::Sso::Server::LoginController < Anubis::Sso::Server::ApplicationController
+class Anoubis::Sso::Server::LoginController < Anoubis::Sso::Server::ApplicationController
   include ActionController::Cookies
 
   def authenticate?

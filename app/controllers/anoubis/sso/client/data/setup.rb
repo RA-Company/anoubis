@@ -1,5 +1,5 @@
 ##
 # Module setups system parameters for {DataController}
-module Anubis::Sso::Client::Data::Setup
-  include Anubis::Core::Data::Setup
+module Anoubis::Sso::Client::Data::Setup
+  include Anoubis::Core::Data::Setup
 end

@@ -1,4 +1,4 @@
- module Anubis
+ module Anoubis
    module Core
      module Data
       ##
@@ -132,7 +132,7 @@
           self.setup_fields
           #puts 'get_filter_where'
           #puts self.etc.data.fields
-          self.etc.data.filter = Anubis::Etc::Filter.new({ data: filter, fields: self.etc.data.fields })
+          self.etc.data.filter = Anoubis::Etc::Filter.new({ data: filter, fields: self.etc.data.fields })
 
           #puts self.etc.data.filter.to_h
         end
@@ -275,10 +275,10 @@
         # @!endgroup
 
         ##
-        # @!group Block of {Anubis::Data::Actions#edit edit} and {Anubis::Data::Actions#update update} getters
+        # @!group Block of {Anoubis::Data::Actions#edit edit} and {Anoubis::Data::Actions#update update} getters
 
         ##
-        # Get model that is used for {Anubis::Data::Actions#edit edit} or {Anubis::Data::Actions#update update} actions.
+        # Get model that is used for {Anoubis::Data::Actions#edit edit} or {Anoubis::Data::Actions#update update} actions.
         def get_edit_model
           return self.etc.data.model if self.etc.data.model
           self.etc.data.model = self.edit_model
@@ -287,8 +287,8 @@
         end
 
         ##
-        # Get default eager load definition for {Anubis::Data::Actions#edit edit} or
-        # {Anubis::Data::Actions#update update} actions.
+        # Get default eager load definition for {Anoubis::Data::Actions#edit edit} or
+        # {Anoubis::Data::Actions#update update} actions.
         def get_edit_eager_load
           return self.etc.data.eager_load if self.etc.data.model
           self.get_edit_model
@@ -296,8 +296,8 @@
         end
 
         ##
-        # Return current table fields hash for {Anubis::Data::Actions#edit edit} or
-        # {Anubis::Data::Actions#update update} actions.
+        # Return current table fields hash for {Anoubis::Data::Actions#edit edit} or
+        # {Anoubis::Data::Actions#update update} actions.
         # @return [Hash] current defined table fields
         def get_edit_fields
           self.setup_edit_fields
@@ -305,7 +305,7 @@
         end
 
         ##
-        # Get table data for single row for {Anubis::Data::Actions#edit edit} or {Anubis::Data::Actions#update update}
+        # Get table data for single row for {Anoubis::Data::Actions#edit edit} or {Anoubis::Data::Actions#update update}
         # actions.
         # @param row [ActiveRecord] single row of model data
         # @return [Hash] calculated hash of model row
@@ -328,10 +328,10 @@
         # @!endgroup
 
         ##
-        # @!group Block of {Anubis::Data::Actions#new new} or {Anubis::Data::Actions#create create} getters
+        # @!group Block of {Anoubis::Data::Actions#new new} or {Anoubis::Data::Actions#create create} getters
 
         ##
-        # Return current table fields hash for {Anubis::Data::Actions#new new} or {Anubis::Data::Actions#create create}
+        # Return current table fields hash for {Anoubis::Data::Actions#new new} or {Anoubis::Data::Actions#create create}
         # actions
         # @return [Hash] current defined table fields
         def get_new_fields
@@ -340,7 +340,7 @@
         end
 
         ##
-        # Get table data for single row for {Anubis::Data::Actions#new new} or {Anubis::Data::Actions#create create}
+        # Get table data for single row for {Anoubis::Data::Actions#new new} or {Anoubis::Data::Actions#create create}
         # actions.
         # @param row [ActiveRecord] single row of model data
         # @return [Hash] calculated hash of model row
@@ -435,7 +435,7 @@
 
         ##
         # Returns permitted parameters. Parameters is got from standard parameters output and checks according
-        # by described {Anubis::Etc::Data#fields self.etc.data.fields}.
+        # by described {Anoubis::Etc::Data#fields self.etc.data.fields}.
         # @return [Hash<Symbol, string>] permitted paramters' collection
         def get_permited_params
           permit = []
@@ -469,7 +469,7 @@
 
         ##
         # Get autocomplete data for field
-        # @param field [Anubis::Etc::Field] - field for loading data
+        # @param field [Anoubis::Etc::Field] - field for loading data
         # @param value [String] - search value for load data
         # @return [Hash] resulting hash for selected data
         def get_autocomplete_data(field, value)

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module Anubis
+module Anoubis
   RSpec.describe SystemMenu, type: :model do
     before(:all) do
       @system = create :system, ident: 'test'
@@ -20,7 +20,7 @@ module Anubis
 
     it "check created tree" do
       create :system_menu, system: @system, menu: @menu3
-      expect(Anubis::SystemMenu.where(system: @system).count(:id)).to eq 3
+      expect(Anoubis::SystemMenu.where(system: @system).count(:id)).to eq 3
     end
 
     it "can destroy" do
@@ -31,8 +31,8 @@ module Anubis
 
     it "can destroy tree" do
       create :system_menu, system: @system, menu: @menu3
-      Anubis::SystemMenu.where(system: @system, menu: @menu1).first.destroy
-      expect(Anubis::SystemMenu.where(system: @system).count(:id)).to eq 0
+      Anoubis::SystemMenu.where(system: @system, menu: @menu1).first.destroy
+      expect(Anoubis::SystemMenu.where(system: @system).count(:id)).to eq 0
     end
 
     after(:all) do
@@ -40,7 +40,7 @@ module Anubis
       @menu2.destroy
       @menu1.destroy
       #@group.destroy
-      Anubis::Group.where(system_id: @system.id).each do |item|
+      Anoubis::Group.where(system_id: @system.id).each do |item|
         item.destroy
       end
       @system.destroy

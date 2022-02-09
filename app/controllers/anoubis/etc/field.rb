@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Etc
     ##
     # Definitions of field options for table column or new (edit) form field.
@@ -62,7 +62,7 @@ module Anubis
       class_attribute :options, default: nil
 
       # @!attribute [rw]
-      # Describes if this field could return data for {Anubis::Data::Actions#autocomplete autocomplete} action.
+      # Describes if this field could return data for {Anoubis::Data::Actions#autocomplete autocomplete} action.
       # @return [Boolean] possibility for return data on autocomplete action.
       #
       # <b>Options:</b>
@@ -139,21 +139,21 @@ module Anubis
       end
 
       ##
-      # Initialize additional parameters for {Anubis::Etc::Field#type 'string' field type} for controller actions.
+      # Initialize additional parameters for {Anoubis::Etc::Field#type 'string' field type} for controller actions.
       # @param options [Hash] field's initial options
       def initialize_string (options)
 
       end
 
       ##
-      # Initialize additional parameters for {Anubis::Etc::Field#type 'boolean' field type} for controller actions.
+      # Initialize additional parameters for {Anoubis::Etc::Field#type 'boolean' field type} for controller actions.
       # @param options [Hash] field's initial options
       def initialize_boolean (options)
 
       end
 
       ##
-      # Initialize additional parameters for {Anubis::Etc::Field#type 'number' field type} for controller actions.
+      # Initialize additional parameters for {Anoubis::Etc::Field#type 'number' field type} for controller actions.
       # @param options [Hash] field's initial options
       def initialize_number (options)
         if options.key? :error_text
@@ -167,21 +167,21 @@ module Anubis
       end
 
       ##
-      # Initialize additional parameters for {Anubis::Etc::Field#type 'text' field type} for controller actions.
+      # Initialize additional parameters for {Anoubis::Etc::Field#type 'text' field type} for controller actions.
       # @param options [Hash] field's initial options
       def initialize_text (options)
 
       end
 
       ##
-      # Initialize additional parameters for {Anubis::Etc::Field#type 'html' field type} for controller actions.
+      # Initialize additional parameters for {Anoubis::Etc::Field#type 'html' field type} for controller actions.
       # @param options [Hash] field's initial options
       def initialize_html (options)
 
       end
 
       ##
-      # Initialize additional parameters for {Anubis::Etc::Field#type 'datetime' field type} for controller actions.
+      # Initialize additional parameters for {Anoubis::Etc::Field#type 'datetime' field type} for controller actions.
       # @param options [Hash] field's initial options
       def initialize_datetime (options)
         options[:format] = 'datetime' if !options.key? :format
@@ -190,7 +190,7 @@ module Anubis
       end
 
       ##
-      # Setups additional parameters for {Anubis::Etc::Field#type 'listbox' field type} for controller actions.
+      # Setups additional parameters for {Anoubis::Etc::Field#type 'listbox' field type} for controller actions.
       # @param options [Hash] field's initial options
       def initialize_listbox (options)
         self.options = FieldOptions.new if !self.options
@@ -220,7 +220,7 @@ module Anubis
       end
 
       ##
-      # Initialize additional parameters for {Anubis::Etc::Field#type 'key' field type} for controller actions.
+      # Initialize additional parameters for {Anoubis::Etc::Field#type 'key' field type} for controller actions.
       # @param options [Hash] field's initial options
       def initialize_key (options)
         if self.model

@@ -9,13 +9,13 @@ require_dependency "anubis/sso/client/data/convert"
 require_dependency "anubis/sso/client/data/callbacks"
 
 # Controller consists all procedures and function for presents and modify models data.
-class Anubis::Sso::Client::DataController < Anubis::Sso::Client::ApplicationController
-  include Anubis::Sso::Client::Data::Actions
-  include Anubis::Sso::Client::Data::Load
-  include Anubis::Sso::Client::Data::Get
-  include Anubis::Sso::Client::Data::Set
-  include Anubis::Sso::Client::Data::Setup
-  include Anubis::Sso::Client::Data::Defaults
-  include Anubis::Sso::Client::Data::Convert
-  include Anubis::Sso::Client::Data::Callbacks
+class Anoubis::Sso::Client::DataController < Anoubis::Sso::Client::ApplicationController
+  include Anoubis::Sso::Client::Data::Actions
+  include Anoubis::Sso::Client::Data::Load
+  include Anoubis::Sso::Client::Data::Get
+  include Anoubis::Sso::Client::Data::Set
+  include Anoubis::Sso::Client::Data::Setup
+  include Anoubis::Sso::Client::Data::Defaults
+  include Anoubis::Sso::Client::Data::Convert
+  include Anoubis::Sso::Client::Data::Callbacks
 end

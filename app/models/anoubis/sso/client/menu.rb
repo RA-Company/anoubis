@@ -1,4 +1,4 @@
-class Anubis::Sso::Client::Menu < Anubis::Sso::Client::ApplicationRecord
+class Anoubis::Sso::Client::Menu < Anoubis::Sso::Client::ApplicationRecord
   self.table_name = 'menus'
 
   before_create :before_create_sso_client_menu
@@ -31,8 +31,8 @@ class Anubis::Sso::Client::Menu < Anubis::Sso::Client::ApplicationRecord
 
   # @!attribute menu
   #   @return [Menu, nil] the parent menu for element menu (if exists).
-  belongs_to :menu, class_name: 'Anubis::Sso::Client::Menu', optional: true
-  has_many :menus, class_name: 'Anubis::Sso::Client::Menu'
+  belongs_to :menu, class_name: 'Anoubis::Sso::Client::Menu', optional: true
+  has_many :menus, class_name: 'Anoubis::Sso::Client::Menu'
 
   # @!attribute title
   #   @return [String] the menu's localized title.
@@ -82,13 +82,13 @@ class Anubis::Sso::Client::Menu < Anubis::Sso::Client::ApplicationRecord
   #     - 'hidden' --- element is hidden.
   enum state: { visible: 0, hidden: 1 }
 
-  has_many :group_menus, class_name: 'Anubis::Sso::Client::GroupMenu'
+  has_many :group_menus, class_name: 'Anoubis::Sso::Client::GroupMenu'
 
   ##
   # Is called before menu will be created in database. Sets {#position} as last {#position} + 1 on current {#tab}.
   # After this calls {#before_update_menu} for additional modification.
   def before_create_sso_client_menu
-    data = Anubis::Sso::Client::Menu.where(menu_id: self.menu_id).maximum(:position)
+    data = Anoubis::Sso::Client::Menu.where(menu_id: self.menu_id).maximum(:position)
     self.position = if data then data + 1 else 0 end
 
     self.before_update_sso_client_menu
@@ -104,7 +104,7 @@ class Anubis::Sso::Client::Menu < Anubis::Sso::Client::ApplicationRecord
     self.page_size = 20 if self.page_size == 0
     self.page_size = self.page_size.to_i
 
-    parent_menu = Anubis::Sso::Client::Menu.where(id: self.menu_id).first
+    parent_menu = Anoubis::Sso::Client::Menu.where(id: self.menu_id).first
     if parent_menu
       self.tab = parent_menu.tab + 1
     else
@@ -137,8 +137,8 @@ class Anubis::Sso::Client::Menu < Anubis::Sso::Client::ApplicationRecord
             SET menus.position = menus.position - 1
             WHERE menus.tab = #{self.tab} AND menus.position > #{self.position}
     SQL
-    Anubis::Sso::Client::Menu.connection.execute query
-    Anubis::Sso::Client::Menu.where(menu_id: self.id).find_each do |menu|
+    Anoubis::Sso::Client::Menu.connection.execute query
+    Anoubis::Sso::Client::Menu.where(menu_id: self.id).find_each do |menu|
       menu.destroy
     end
   end

@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   ##
   # Module consists all procedures and functons of {DataController}
   module Core
@@ -29,8 +29,8 @@ module Anubis
         end
 
         ##
-        # Setups order for current tab. Parameters is set into {Anubis::Etc::TabItem#sort self.etc.tab.sort} and
-        # {Anubis::Etc::TabItem#order self.etc.tab.order} attributes.
+        # Setups order for current tab. Parameters is set into {Anoubis::Etc::TabItem#sort self.etc.tab.sort} and
+        # {Anoubis::Etc::TabItem#order self.etc.tab.order} attributes.
         def setup_order
           sort = nil
           first = nil
@@ -58,7 +58,7 @@ module Anubis
         # @!group Block of fields setup functions
 
         ##
-        # Setups defined fields and places it into attribute {Anubis::Etc::Data#fields self.etc.data.fields}
+        # Setups defined fields and places it into attribute {Anoubis::Etc::Data#fields self.etc.data.fields}
         def setup_fields
           if !self.etc.data.fields
             self.etc.data.fields = {}
@@ -71,7 +71,7 @@ module Anubis
                   fields[key][:editable] = fields[key][:edit]
                 end
               end
-              self.etc.data.fields[key] = Anubis::Etc::Field.new(key, self.get_model, fields[key].merge(action: self.etc.action))
+              self.etc.data.fields[key] = Anoubis::Etc::Field.new(key, self.get_model, fields[key].merge(action: self.etc.action))
             end
             self.setup_order if %w[index export].include? self.etc.action
           end

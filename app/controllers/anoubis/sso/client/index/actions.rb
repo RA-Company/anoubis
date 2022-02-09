@@ -1,6 +1,6 @@
-module Anubis::Sso::Client::Index::Actions
+module Anoubis::Sso::Client::Index::Actions
   def menu
-    self.output = Anubis::Output::Menu.new
+    self.output = Anoubis::Output::Menu.new
 
     if self.current_user
       self.output.user = {
@@ -10,7 +10,7 @@ module Anubis::Sso::Client::Index::Actions
       }
     end
 
-    access = Anubis::Sso::Client::GroupMenu.accesses[:read].to_s+','+Anubis::Sso::Client::GroupMenu.accesses[:write].to_s
+    access = Anoubis::Sso::Client::GroupMenu.accesses[:read].to_s+','+Anoubis::Sso::Client::GroupMenu.accesses[:write].to_s
     query = <<-SQL
           SELECT `t`.* FROM
             (
@@ -32,7 +32,7 @@ module Anubis::Sso::Client::Index::Actions
             )
           ORDER BY `t`.`menu_id`, `t`.`position`
     SQL
-    Anubis::Sso::Client::GroupMenu.find_by_sql(query).each do |data|
+    Anoubis::Sso::Client::GroupMenu.find_by_sql(query).each do |data|
       self.output.addElement({
                                mode: data.mode,
                                title: data.title,
@@ -42,7 +42,7 @@ module Anubis::Sso::Client::Index::Actions
                                tab: data.tab,
                                action: data.action,
                                access: data.access,
-                               state: Anubis::Sso::Client::Menu.states.invert[data.state],
+                               state: Anoubis::Sso::Client::Menu.states.invert[data.state],
                                parent: data.parent_mode
                              })
       #self.output[:data].push menu_id[data.id.to_s.to_sym]
@@ -56,7 +56,7 @@ module Anubis::Sso::Client::Index::Actions
   end
 
   def logout
-    self.output = Anubis::Output::Basic.new
+    self.output = Anoubis::Output::Basic.new
     self.output.result = 0
 
     begin

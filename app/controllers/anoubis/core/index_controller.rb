@@ -2,13 +2,13 @@ require_dependency "anubis/core/application_controller"
 require_dependency "anubis/core/index/actions"
 require_dependency "anubis/core/index/callbacks"
 
-module Anubis
+module Anoubis
   module Core
     ##
     # Controller processes main system functions. Authenticates user, checks user access, outputs main menu and etc.
-    class IndexController < Anubis::Core::ApplicationController
-      include Anubis::Core::Index::Actions
-      include Anubis::Core::Index::Callbacks
+    class IndexController < Anoubis::Core::ApplicationController
+      include Anoubis::Core::Index::Actions
+      include Anoubis::Core::Index::Callbacks
 
       ##
       # Check if authentication required

@@ -60,7 +60,7 @@ class Anoubis::Tenant::System < Anoubis::Core::ApplicationRecord
       data = Anoubis::Tenant::Group.find_or_create_by(ident: 'admin', system_id: self.id)
       I18n.available_locales.each do |locale|
         I18n.locale = locale
-        Anubis::Tenant::GroupLocale.find_or_create_by(group_id: data.id, locale: Anubis::Tenant::MenuLocale.locales[locale.to_s.to_sym]) do |system_locale|
+        Anoubis::Tenant::GroupLocale.find_or_create_by(group_id: data.id, locale: Anoubis::Tenant::MenuLocale.locales[locale.to_s.to_sym]) do |system_locale|
           system_locale.title = I18n.t('anubis.install.admins_group')
         end
       end
@@ -75,7 +75,7 @@ class Anoubis::Tenant::System < Anoubis::Core::ApplicationRecord
 
   ##
   # Is called after system had been updated. If {#ident} value had been changed then procedure updates
-  # every {Anubis::Group#full_ident} value.
+  # every {Anoubis::Group#full_ident} value.
   def after_update_system
     if self.ident_was != self.ident
       update_groups_full_ident self.id, self.ident
@@ -91,7 +91,7 @@ class Anoubis::Tenant::System < Anoubis::Core::ApplicationRecord
       throw(:abort, __method__)
     end
 
-    Anubis::Tenant::SystemLocale.where(system_id: self.id).each do |system_locale|
+    Anoubis::Tenant::SystemLocale.where(system_id: self.id).each do |system_locale|
       system_locale.destroy
     end
 
@@ -109,14 +109,14 @@ class Anoubis::Tenant::System < Anoubis::Core::ApplicationRecord
     query = <<-SQL
             UPDATE groups SET groups.full_ident = CONCAT('#{ident}.', groups.ident) WHERE groups.system_id = #{id}
     SQL
-    Anubis::Tenant::Group.connection.execute query
+    Anoubis::Tenant::Group.connection.execute query
   end
 
   ##
   # Returns model localization data from {SystemLocale}.
   # @return [SystemLocale] localization for current system
   def model_locale
-    @model_locale ||= self.system_locales.where(locale: Anubis::Tenant::SystemLocale.locales[self.current_locale.to_sym]).first
+    @model_locale ||= self.system_locales.where(locale: Anoubis::Tenant::SystemLocale.locales[self.current_locale.to_sym]).first
   end
 
   # @!attribute title

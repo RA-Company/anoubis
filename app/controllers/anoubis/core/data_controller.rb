@@ -8,21 +8,21 @@ require_dependency "anubis/core/data/defaults"
 require_dependency "anubis/core/data/convert"
 require_dependency "anubis/core/data/callbacks"
 
-module Anubis
+module Anoubis
   ##
   # Module presents all core functions for Anubis Library
   module Core
     ##
     # Controller consists all procedures and function for presents and modify models data.
-    class DataController < Anubis::Core::ApplicationController
-      include Anubis::Core::Data::Actions
-      include Anubis::Core::Data::Load
-      include Anubis::Core::Data::Get
-      include Anubis::Core::Data::Set
-      include Anubis::Core::Data::Setup
-      include Anubis::Core::Data::Defaults
-      include Anubis::Core::Data::Convert
-      include Anubis::Core::Data::Callbacks
+    class DataController < Anoubis::Core::ApplicationController
+      include Anoubis::Core::Data::Actions
+      include Anoubis::Core::Data::Load
+      include Anoubis::Core::Data::Get
+      include Anoubis::Core::Data::Set
+      include Anoubis::Core::Data::Setup
+      include Anoubis::Core::Data::Defaults
+      include Anoubis::Core::Data::Convert
+      include Anoubis::Core::Data::Callbacks
     end
   end
 end

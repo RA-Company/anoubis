@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Etc
     ##
     # Definitions of model options. Class is used for define attached model.

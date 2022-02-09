@@ -1,4 +1,4 @@
-class Anubis::Sso::Client::User < Anubis::Sso::Client::ApplicationRecord
+class Anoubis::Sso::Client::User < Anoubis::Sso::Client::ApplicationRecord
   self.table_name = 'users'
 
   after_destroy :after_destroy_anubis_sso_client_user
@@ -64,7 +64,7 @@ class Anubis::Sso::Client::User < Anubis::Sso::Client::ApplicationRecord
 
   def get_menus
     self.menus = {}
-    access = Anubis::Sso::Client::GroupMenu.accesses[:read].to_s+','+Anubis::Sso::Client::GroupMenu.accesses[:write].to_s
+    access = Anoubis::Sso::Client::GroupMenu.accesses[:read].to_s+','+Anoubis::Sso::Client::GroupMenu.accesses[:write].to_s
     query = <<-SQL
           SELECT `menus`.`id`, `menus`.`mode`, MAX(`group_menus`.`access`) AS `access`
           FROM (`menus`, `group_menus`, `groups`, `user_groups`)
@@ -72,7 +72,7 @@ class Anubis::Sso::Client::User < Anubis::Sso::Client::ApplicationRecord
             `groups`.`id` = `user_groups`.`group_id` AND `user_groups`.`user_id` = #{self.id} 
           GROUP BY `menus`.`id`, `menus`.`mode`
     SQL
-    Anubis::Sso::Client::GroupMenu.find_by_sql(query).each do |data|
+    Anoubis::Sso::Client::GroupMenu.find_by_sql(query).each do |data|
       self.menus[data[:mode]] = data.access
     end
 

@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   ##
   # Module contains all procedures and function for output data. Module consists from {Basic}, {Frame}, {Login} and
   # {Menu} classes.

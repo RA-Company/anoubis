@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Etc
     ##
     # Class stores main menu parameters and variables
@@ -83,7 +83,7 @@ module Anubis
           self.state = options[:state] if options.has_key? :state
           self.access = options[:access] if options.has_key? :access
         end
-        if options.class == Anubis::Sso::Client::Menu
+        if options.class == Anoubis::Sso::Client::Menu
           self.title = options.title
           self.page_title = options.page_title
           self.short_title = options.short_title

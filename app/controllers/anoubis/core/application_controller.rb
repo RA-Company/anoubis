@@ -1,6 +1,6 @@
 ##
 # Application controller for Anubis library.
-class Anubis::Core::ApplicationController < ActionController::API
+class Anoubis::Core::ApplicationController < ActionController::API
   prepend_before_action :anubis_core_initialization
 
   #include AbstractController::Translation
@@ -23,7 +23,7 @@ class Anubis::Core::ApplicationController < ActionController::API
   attr_accessor :current_user
 
   # @!attribute [rw] output
-  #    @return [Anubis::Output] standard output.
+  #    @return [Anoubis::Output] standard output.
   attr_accessor :output
 
   # @!attribute [rw] writer
@@ -31,11 +31,11 @@ class Anubis::Core::ApplicationController < ActionController::API
   attr_accessor :writer
 
   # @!attribute [rw] etc
-  #   @return [Anubis::Etc::Base] global system parameters
+  #   @return [Anoubis::Etc::Base] global system parameters
   attr_accessor :etc
 
   # @!attribute [rw] exports
-  #   @return [Anubis::Export] Export data class
+  #   @return [Anoubis::Export] Export data class
   attr_accessor :exports
 
   ##
@@ -50,9 +50,9 @@ class Anubis::Core::ApplicationController < ActionController::API
     self.version = 0
 
     if defined? params
-      self.etc = Anubis::Etc::Base.new({ params: params })
+      self.etc = Anoubis::Etc::Base.new({ params: params })
     else
-      self.etc = Anubis::Etc::Base.new
+      self.etc = Anoubis::Etc::Base.new
     end
     self.output = nil
     self.exports = nil

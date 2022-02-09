@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module Anubis
+module Anoubis
   RSpec.describe IndexController, type: :controller do
     render_views
 

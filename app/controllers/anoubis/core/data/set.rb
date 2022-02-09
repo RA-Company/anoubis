@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Core
     module Data
       ##
@@ -14,7 +14,7 @@ module Anubis
         #   - 'update' - for update action
         #   - 'destroy' - for defstroy action
         def set_parent_model(action = '')
-          self.etc.data = Anubis::Etc::Data.new if !self.etc.data
+          self.etc.data = Anoubis::Etc::Data.new if !self.etc.data
           self.etc.action = action if action != ''
           self.set_current_tab
         end

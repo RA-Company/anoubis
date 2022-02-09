@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module Anubis
+module Anoubis
   RSpec.describe Group, type: :model do
     it "is valid" do
       expect(build_stubbed(:group)).to be_valid
@@ -32,7 +32,7 @@ module Anubis
 
     it "can't change admin group ident" do
       system = create :system
-      group = Anubis::Group.where(system: system, ident: 'admin').first
+      group = Anoubis::Group.where(system: system, ident: 'admin').first
       group.ident = 'tst'
       expect(group.save).to eq false
     end
@@ -44,7 +44,7 @@ module Anubis
     end
 
     it "can't destroy admin group of main system" do
-      group = Anubis::Group.where(system_id: 1, ident: 'admin').first
+      group = Anoubis::Group.where(system_id: 1, ident: 'admin').first
       group.destroy
       expect(group.destroyed?).to eq false
     end

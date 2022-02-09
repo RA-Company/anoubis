@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Etc
     ##
     # Definitions of fields options list for 'checkbox' and 'listbox' type.

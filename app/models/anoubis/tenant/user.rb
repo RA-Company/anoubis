@@ -1,6 +1,6 @@
 ##
 # Main User model. Stores inforation about all users that can access to the portal.
-class Anubis::Tenant::User < ApplicationRecord
+class Anoubis::Tenant::User < ApplicationRecord
   # @!attribute patronymic
   #   @return [String] user's patronymic
 
@@ -70,8 +70,8 @@ class Anubis::Tenant::User < ApplicationRecord
 
   # @!attribute tenant
   #   @return [Tenant] the tenant that owns this user.
-  belongs_to :tenant, class_name: 'Anubis::Tenant::Tenant'
-  has_many :user_groups, class_name: 'Anubis::Tenant::UserGroup'
+  belongs_to :tenant, class_name: 'Anoubis::Tenant::Tenant'
+  has_many :user_groups, class_name: 'Anoubis::Tenant::UserGroup'
 
   has_one_attached :avatar
 
@@ -145,7 +145,7 @@ class Anubis::Tenant::User < ApplicationRecord
       throw(:abort, __method__)
     end
 
-    Anubis::Tenant::UserGroup.where(user_id: self.id).delete_all
+    Anoubis::Tenant::UserGroup.where(user_id: self.id).delete_all
   end
 
   ##

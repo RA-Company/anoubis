@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Core
     module Data
       ##
@@ -27,8 +27,8 @@ module Anubis
         # @!group Block of conversion database value into human view format
 
         ##
-        # Convert value from database to view format according by defining field type and {Anubis::Etc::Base#action action}
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Convert value from database to view format according by defining field type and {Anoubis::Etc::Base#action action}
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] value from database
         def convert_db_to_view_value(key, value)
           field = self.etc.data.fields[key]
@@ -40,7 +40,7 @@ module Anubis
 
         ##
         # Convert value from database to view format for 'string' type
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] value from database
         def convert_db_to_view_value_string(key, value)
           return { key => '' } if !value
@@ -49,7 +49,7 @@ module Anubis
 
         ##
         # Convert value from database to view format for 'boolean' type
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [Boolean] value from database
         def convert_db_to_view_value_boolean(key, value)
           return { key => '' } if !value
@@ -58,7 +58,7 @@ module Anubis
 
         ##
         # Convert value from database to view format for 'integer' type
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] value from database
         def convert_db_to_view_value_number(key, value)
           return { key => self.etc.data.fields[key].error_text } if !value
@@ -68,7 +68,7 @@ module Anubis
 
         ##
         # Convert value from database to view format for 'text' type
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] value from database
         def convert_db_to_view_value_text(key, value)
           return { key => '' } if !value
@@ -77,7 +77,7 @@ module Anubis
 
         ##
         # Convert value from database to view format for 'html' type
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] value from database
         def convert_db_to_view_value_html(key, value)
           return { key => '' } if !value
@@ -86,7 +86,7 @@ module Anubis
 
         ##
         # Convert value from database to table format for 'listbox' type
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] value from database
         def convert_db_to_view_value_listbox(key, value)
           field = self.etc.data.fields[key]
@@ -129,7 +129,7 @@ module Anubis
 
         ##
         # Convert value from database to view format for 'key' type
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] value from database
         def convert_db_to_view_value_key(key, value)
           return { key => '' } if !value
@@ -264,7 +264,7 @@ module Anubis
         ##
         # Convert value from database to edit form for float type
         # @param key [Symbol] field's identifier
-        # @param field [Anubis::Etc::Data#fields] field's options
+        # @param field [Anoubis::Etc::Data#fields] field's options
         # @param value [Float] value from database before processing
         # @return [Hash] return resulting value at format <b>{ key+'_view': processed_value, key: value }</b>
         def convert_db_to_table_value_float(key, field, value)
@@ -278,10 +278,10 @@ module Anubis
 
         ##
         # Converts inputted value to database format.
-        # Field type is got from {Anubis::Etc::Data#fields self.etc.data.fields} according by key.
-        # Resulting data is placed into {Anubis::Etc::Data#data self.etc.data.data} attribute according by key.
-        # Errors are placed in {Anubis::Output::Update#errors self.output.errors} array according by key.
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Field type is got from {Anoubis::Etc::Data#fields self.etc.data.fields} according by key.
+        # Resulting data is placed into {Anoubis::Etc::Data#data self.etc.data.data} attribute according by key.
+        # Errors are placed in {Anoubis::Output::Update#errors self.output.errors} array according by key.
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] value from user input
         def convert_view_to_db_value(key, value)
           field = self.etc.data.fields[key]
@@ -292,8 +292,8 @@ module Anubis
         end
 
         ##
-        # Converts inputted value to database format for {Anubis::Etc::Field#type 'string' field type}.
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Converts inputted value to database format for {Anoubis::Etc::Field#type 'string' field type}.
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] inputted value
         def convert_view_to_db_value_string(key, value)
           proc = format('self.etc.data.data.%s = value', key)
@@ -302,8 +302,8 @@ module Anubis
         end
 
         ##
-        # Converts inputted value to database format for {Anubis::Etc::Field#type 'boolean' field type}.
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Converts inputted value to database format for {Anoubis::Etc::Field#type 'boolean' field type}.
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [Boolean] inputted value
         def convert_view_to_db_value_boolean(key, value)
           proc = format('self.etc.data.data.%s = value', key)
@@ -312,8 +312,8 @@ module Anubis
         end
 
         ##
-        # Converts inputted value to database format for {Anubis::Etc::Field#type 'number' field type}.
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Converts inputted value to database format for {Anoubis::Etc::Field#type 'number' field type}.
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] inputted value
         def convert_view_to_db_value_number(key, value)
           field = self.etc.data.fields[key]
@@ -328,8 +328,8 @@ module Anubis
         end
 
         ##
-        # Converts inputted value to database format for {Anubis::Etc::Field#type 'text' field type}.
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Converts inputted value to database format for {Anoubis::Etc::Field#type 'text' field type}.
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] inputted value
         def convert_view_to_db_value_text(key, value)
           proc = format('self.etc.data.data.%s = value', key)
@@ -338,8 +338,8 @@ module Anubis
         end
 
         ##
-        # Converts inputted value to database format for {Anubis::Etc::Field#type 'html' field type}.
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Converts inputted value to database format for {Anoubis::Etc::Field#type 'html' field type}.
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] inputted value
         def convert_view_to_db_value_html(key, value)
           proc = format('self.etc.data.data.%s = value', key)
@@ -348,9 +348,9 @@ module Anubis
         end
 
         ##
-        # Converts inputted value to database format for {Anubis::Etc::Field#type 'listbox' field type}
-        # for {Anubis::Data::Actions#create 'create'} action
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Converts inputted value to database format for {Anoubis::Etc::Field#type 'listbox' field type}
+        # for {Anoubis::Data::Actions#create 'create'} action
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] inputted value
         def convert_view_to_db_value_listbox(key, value)
           field = self.etc.data.fields[key]
@@ -364,9 +364,9 @@ module Anubis
         end
 
         ##
-        # Converts inputted value to database format for {Anubis::Etc::Field#type 'key' field type}
-        # for {Anubis::Data::Actions#create 'create'} action
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Converts inputted value to database format for {Anoubis::Etc::Field#type 'key' field type}
+        # for {Anoubis::Data::Actions#create 'create'} action
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] inputted value
         def convert_view_to_db_value_key(key, value)
           field = self.etc.data.fields[key]
@@ -383,8 +383,8 @@ module Anubis
         end
 
         ##
-        # Converts inputted value to database format for {Anubis::Etc::Field#type 'datetime' field type}.
-        # @param key [Symbol] field's identifier in {Anubis::Etc::Data#fields self.etc.data.fields} structure
+        # Converts inputted value to database format for {Anoubis::Etc::Field#type 'datetime' field type}.
+        # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
         # @param value [String] inputted value
         def convert_view_to_db_value_datetime(key, value)
           zone = ActiveSupport::TimeZone[self.current_user.timezone]

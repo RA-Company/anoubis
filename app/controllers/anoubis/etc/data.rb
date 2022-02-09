@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Etc
     ##
     # Class stores data information for current controller

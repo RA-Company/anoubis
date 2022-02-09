@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module Anubis
+module Anoubis
   RSpec.describe Menu, type: :model do
     it "is valid" do
       expect(build_stubbed(:menu)).to be_valid

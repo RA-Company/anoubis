@@ -1,4 +1,4 @@
-module Anubis::Sso::Client::Index::Callbacks
+module Anoubis::Sso::Client::Index::Callbacks
   ##
   # Calls before menu output data.
   def before_menu_output

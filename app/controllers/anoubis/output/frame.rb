@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Output
     ##
     # Output subclass that represents data for frame action
@@ -16,11 +16,11 @@ module Anubis
       class_attribute :access
 
       # @!attribute [rw] tab_items
-      #   @return [Array] the array of tab elements {Anubis::Output::TabItem}.
+      #   @return [Array] the array of tab elements {Anoubis::Output::TabItem}.
       class_attribute :tab_items
 
       # @!attribute [rw] tabs
-      #   @return [Hash] the hash of menu elements {Anubis::Output::TabItem} with 'mode' as a key.
+      #   @return [Hash] the hash of menu elements {Anoubis::Output::TabItem} with 'mode' as a key.
       class_attribute :tabs
 
       ##
@@ -80,11 +80,11 @@ module Anubis
       class_attribute :hint
 
       # @!attribute [rw] button_items
-      #   @return [Array] the array of tab elements {Anubis::Output::FrameButtonItem}.
+      #   @return [Array] the array of tab elements {Anoubis::Output::FrameButtonItem}.
       class_attribute :button_items
 
       # @!attribute [rw] buttons
-      #   @return [Hash] the hash of menu elements {Anubis::Output::FrameButtonItem} with 'key' as a key.
+      #   @return [Hash] the hash of menu elements {Anoubis::Output::FrameButtonItem} with 'key' as a key.
       class_attribute :buttons
 
       # @!attribute [rw] filter

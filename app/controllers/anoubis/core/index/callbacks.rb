@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Core
     ##
     # Module contains all procedures and function for {IndexController}. Consists of {Actions} and {Callbacks} module.

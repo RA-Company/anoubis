@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Etc
     ##
     # Definitions of filter options for data.
@@ -20,7 +20,7 @@ module Anubis
 
       # @!attribute [rw]
       # Defines reference for fields
-      # @return [Hash<Anubis::Etc::Field>] hash of fields
+      # @return [Hash<Anoubis::Etc::Field>] hash of fields
       class_attribute :fields, default: nil
 
       ##

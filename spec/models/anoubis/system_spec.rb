@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module Anubis
+module Anoubis
   RSpec.describe System, type: :model do
     it "is valid" do
       expect(build_stubbed(:system)).to be_valid
@@ -30,14 +30,14 @@ module Anubis
     end
 
     it "can't change main system ident" do
-      system = Anubis::System.find(1)
+      system = Anoubis::System.find(1)
       system.ident = 'tst'
       expect(system.save).to eq false
     end
 
     it "can destroy" do
       system = create :system, ident: 'dst'
-      Anubis::Group.where(system_id: system.id).each do |item|
+      Anoubis::Group.where(system_id: system.id).each do |item|
         item.destroy
       end
       system.destroy
@@ -45,7 +45,7 @@ module Anubis
     end
 
     it "can't destroy main system" do
-      system = Anubis::System.find(1)
+      system = Anoubis::System.find(1)
       system.destroy
       expect(system.destroyed?).to eq false
     end

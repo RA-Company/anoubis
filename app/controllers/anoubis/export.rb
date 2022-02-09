@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   class Export
     class_attribute :data
     class_attribute :title

@@ -5,16 +5,16 @@ def create_tenant(params = {})
   return nil if !params.has_key? :ident
   return nil if !params.has_key? :title
 
-  tenant = Anubis::Tenant::Tenant.find_or_create_by ident: params[:ident]
+  tenant = Anoubis::Tenant::Tenant.find_or_create_by ident: params[:ident]
   tenant.title = params[:title]
   if params.has_key? :default
     if params[:default]
-      tenant.state = Anubis::Tenant::Tenant.states[:default]
+      tenant.state = Anoubis::Tenant::Tenant.states[:default]
     end
   end
   tenant.save
 
-  Anubis::Tenant::TenantSystem.find_or_create_by tenant: tenant, system_id: 1
+  Anoubis::Tenant::TenantSystem.find_or_create_by tenant: tenant, system_id: 1
 
   return tenant
 end
@@ -31,7 +31,7 @@ def create_menu(params = {})
   prefix = 'install.menu.'+params[:mode].to_s
 
   if get_anubis_type == 'tenant'
-    data = Anubis::Tenant::Menu.find_or_create_by(mode: params[:mode]) do |menu|
+    data = Anoubis::Tenant::Menu.find_or_create_by(mode: params[:mode]) do |menu|
       menu.action = params[:action]
       menu.menu = params[:parent] if params.key? :parent
       menu.page_size = params[:page_size] if params.key? :page_size
@@ -40,7 +40,7 @@ def create_menu(params = {})
 
     I18n.available_locales.each do |locale|
       I18n.locale = locale
-      Anubis::Tenant::MenuLocale.find_or_create_by(menu_id: data.id, locale: Anubis::Tenant::MenuLocale.locales[locale.to_s.to_sym]) do |menu_locale|
+      Anoubis::Tenant::MenuLocale.find_or_create_by(menu_id: data.id, locale: Anoubis::Tenant::MenuLocale.locales[locale.to_s.to_sym]) do |menu_locale|
         menu_locale.title = I18n.t(prefix+'.title')
         menu_locale.page_title = I18n.t(prefix+'.page_title')
         menu_locale.short_title = I18n.t(prefix+'.short_title', default: [(prefix+'.title').to_sym])
@@ -50,10 +50,10 @@ def create_menu(params = {})
     if params.has_key?(:group) && params.has_key?(:system)
       if params[:system].is_a? Array
         params[:system].each do |system|
-          Anubis::Tenant::SystemMenu.find_or_create_by system: system, menu: data
+          Anoubis::Tenant::SystemMenu.find_or_create_by system: system, menu: data
         end
       else
-        Anubis::Tenant::SystemMenu.find_or_create_by system: params[:system], menu: data
+        Anoubis::Tenant::SystemMenu.find_or_create_by system: params[:system], menu: data
       end
 
       if params[:group].is_a? Array
@@ -67,7 +67,7 @@ def create_menu(params = {})
   end
 
   if get_anubis_type == 'sso-client'
-    data = Anubis::Sso::Client::Menu.find_or_create_by(mode: params[:mode])
+    data = Anoubis::Sso::Client::Menu.find_or_create_by(mode: params[:mode])
 
     #puts data.to_json
 
@@ -117,11 +117,11 @@ def create_system(params = {})
   return nil if !params.has_key? :ident
   return nil if !params.has_key? :translate
 
-  system = Anubis::Tenant::System.find_or_create_by ident: params[:ident]
+  system = Anoubis::Tenant::System.find_or_create_by ident: params[:ident]
   if system
     I18n.available_locales.each do |locale|
       I18n.locale = locale
-      Anubis::Tenant::SystemLocale.find_or_create_by(system: system, locale: Anubis::Tenant::SystemLocale.locales[locale.to_s.to_sym]) do |system_locale|
+      Anoubis::Tenant::SystemLocale.find_or_create_by(system: system, locale: Anoubis::Tenant::SystemLocale.locales[locale.to_s.to_sym]) do |system_locale|
         system_locale.title = I18n.t(params[:translate])
       end
     end
@@ -130,10 +130,10 @@ def create_system(params = {})
   if params.has_key? :tenant
     if params[:tenant].is_a? Array
       params[:tenant].each do |tenant|
-        Anubis::Tenant::TenantSystem.find_or_create_by tenant: tenant, system: system
+        Anoubis::Tenant::TenantSystem.find_or_create_by tenant: tenant, system: system
       end
     else
-      Anubis::Tenant::TenantSystem.find_or_create_by tenant: params[:tenant], system: system
+      Anoubis::Tenant::TenantSystem.find_or_create_by tenant: params[:tenant], system: system
     end
   end
 
@@ -149,11 +149,11 @@ def create_group(params = {})
   if get_anubis_type == 'tenant'
     return nil if !params.has_key? :system
 
-    group = Anubis::Tenant::Group.find_or_create_by ident: params[:ident], system: params[:system]
+    group = Anoubis::Tenant::Group.find_or_create_by ident: params[:ident], system: params[:system]
     if group
       I18n.available_locales.each do |locale|
         I18n.locale = locale
-        Anubis::Tenant::GroupLocale.find_or_create_by(group: group, locale: Anubis::Tenant::GroupLocale.locales[locale.to_s.to_sym]) do |group_locale|
+        Anoubis::Tenant::GroupLocale.find_or_create_by(group: group, locale: Anoubis::Tenant::GroupLocale.locales[locale.to_s.to_sym]) do |group_locale|
           group_locale.title = I18n.t(params[:translate])
         end
       end
@@ -162,16 +162,16 @@ def create_group(params = {})
     if params.has_key? :user
       if params[:user].is_a? Array
         params[:user].each do |user|
-          Anubis::Tenant::UserGroup.find_or_create_by group: group, user: user
+          Anoubis::Tenant::UserGroup.find_or_create_by group: group, user: user
         end
       else
-        Anubis::Tenant::UserGroup.find_or_create_by group: group, user: params[:user]
+        Anoubis::Tenant::UserGroup.find_or_create_by group: group, user: params[:user]
       end
     end
   end
 
   if get_anubis_type == 'sso-client'
-    group = Anubis::Sso::Client::Group.find_or_create_by ident: params[:ident]
+    group = Anoubis::Sso::Client::Group.find_or_create_by ident: params[:ident]
 
     if group
       I18n.available_locales.each do |locale|
@@ -192,8 +192,8 @@ def add_access_menu(params = {})
   params[:access] = 'read' if !params.has_key? :access
 
   if %w[tenant sso-client].include? get_anubis_type
-    group_menu_model = Anubis::Tenant::GroupMenu if get_anubis_type == 'tenant'
-    group_menu_model = Anubis::Sso::Client::GroupMenu if get_anubis_type == 'sso-client'
+    group_menu_model = Anoubis::Tenant::GroupMenu if get_anubis_type == 'tenant'
+    group_menu_model = Anoubis::Sso::Client::GroupMenu if get_anubis_type == 'sso-client'
 
     if params[:group].class == Array
       params[:group].each do |group|
@@ -227,40 +227,40 @@ end
 if get_anubis_type == 'tenant'
   ##
   # Create default system with id 1
-  system = Anubis::Tenant::System.find_by_id(1)
+  system = Anoubis::Tenant::System.find_by_id(1)
   if !system
-    system = Anubis::Tenant::System.create(id: 1)
+    system = Anoubis::Tenant::System.create(id: 1)
   end
   I18n.available_locales.each do |locale|
     I18n.locale = locale
-    Anubis::Tenant::SystemLocale.find_or_create_by(system_id: system.id, locale: Anubis::Tenant::SystemLocale.locales[locale.to_s.to_sym]) do |system_locale|
+    Anoubis::Tenant::SystemLocale.find_or_create_by(system_id: system.id, locale: Anoubis::Tenant::SystemLocale.locales[locale.to_s.to_sym]) do |system_locale|
       system_locale.title = I18n.t('anubis.install.system_title')
     end
   end
 
   ##
   # Create default tenant with id 1
-  tenant = Anubis::Tenant::Tenant.find_by_id(1)
-  tenant = Anubis::Tenant::Tenant.create(id: 1, title: I18n.t('anubis.install.tenant_title'), state: Anubis::Tenant::Tenant.states[:default]) if !tenant
+  tenant = Anoubis::Tenant::Tenant.find_by_id(1)
+  tenant = Anoubis::Tenant::Tenant.create(id: 1, title: I18n.t('anubis.install.tenant_title'), state: Anoubis::Tenant::Tenant.states[:default]) if !tenant
 
-  Anubis::Tenant::TenantSystem.find_or_create_by tenant: tenant, system: system
+  Anoubis::Tenant::TenantSystem.find_or_create_by tenant: tenant, system: system
 
   ##
   # Load Administrator group of Main System
-  admin_group = Anubis::Tenant::Group.where(system: system, ident: 'admin').first
+  admin_group = Anoubis::Tenant::Group.where(system: system, ident: 'admin').first
   I18n.available_locales.each do |locale|
     I18n.locale = locale
-    Anubis::Tenant::GroupLocale.find_or_create_by(group_id: admin_group.id, locale: Anubis::Tenant::GroupLocale.locales[locale.to_s.to_sym]) do |group_locale|
+    Anoubis::Tenant::GroupLocale.find_or_create_by(group_id: admin_group.id, locale: Anoubis::Tenant::GroupLocale.locales[locale.to_s.to_sym]) do |group_locale|
       group_locale.title = I18n.t('anubis.install.admins_group')
     end
   end
 
   ##
   # Create main administrator with id 1
-  admin_user = Anubis::Tenant::User.find_by_id(1)
-  admin_user = Anubis::Tenant::User.create(id: 1, email: 'admin@local.local', name: I18n.t('anubis.install.admin_name'), surname: I18n.t('anubis.install.admin_surname'), timezone: 'GMT', status: 0, tenant: tenant) if !admin_user
+  admin_user = Anoubis::Tenant::User.find_by_id(1)
+  admin_user = Anoubis::Tenant::User.create(id: 1, email: 'admin@local.local', name: I18n.t('anubis.install.admin_name'), surname: I18n.t('anubis.install.admin_surname'), timezone: 'GMT', status: 0, tenant: tenant) if !admin_user
 
-  Anubis::Tenant::UserGroup.find_or_create_by(user_id: admin_user.id, group_id: admin_group.id)
+  Anoubis::Tenant::UserGroup.find_or_create_by(user_id: admin_user.id, group_id: admin_group.id)
 
   menu_0 = create_menu({ mode: 'anubis/admin', action: 'menu' })
   menu_1 = create_menu({ mode: 'anubis/tenants', action: 'data', parent: menu_0, system: system, group: admin_group, access: 'write' })

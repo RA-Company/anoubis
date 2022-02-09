@@ -1,10 +1,10 @@
-module Anubis
+module Anoubis
   module Tenant
     module Data
       ##
       # Module setups system parameters for {DataController}
       module Setup
-        include Anubis::Core::Data::Setup
+        include Anoubis::Core::Data::Setup
       end
     end
   end

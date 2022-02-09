@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Core
     module Data
       ##
@@ -77,8 +77,8 @@ module Anubis
         ##
         # Returns model that is used for controller actions. By default it's not defined.
         # This is primary model and it must be defined in customer conroller. Different models may be defined according
-        # by {Anubis::Etc::Base#action self.etc.action} attribute.
-        # @return [Anubis::ApplicationRecord, nil, any] returns model
+        # by {Anoubis::Etc::Base#action self.etc.action} attribute.
+        # @return [Anoubis::ApplicationRecord, nil, any] returns model
         def model
           nil
         end
@@ -92,7 +92,7 @@ module Anubis
         ##
         # Returns eager load parameters that are used for controller actions. By default it's set to \[\].
         # This procedure could be redefined in cusomer controller. Different eager loads may be defined according
-        # by {Anubis::Etc::Base#action self.etc.action} attribute.
+        # by {Anoubis::Etc::Base#action self.etc.action} attribute.
         def eager_load
           []
         end
@@ -100,7 +100,7 @@ module Anubis
         ##
         # Returns fields that is used for controller actions in defined {#model}. By default it's defined for id field.
         # This is primary definition and it must be defined in customer conroller. Different fields may be defined according
-        # by {Anubis::Etc::Base#action self.etc.action} attribute.
+        # by {Anoubis::Etc::Base#action self.etc.action} attribute.
         # @return [Hash] returns defined fields for current model
         def fields
           {
@@ -127,8 +127,8 @@ module Anubis
         ##
         # Returns parent model that is used for controller actions. By default it's defined as <i>nil</i>.
         # This procedure could be redefined in customer controller. Different models may be defined according
-        # by {Anubis::Etc::Base#action self.etc.action} attribute.
-        # @return [Anubis::ApplicationRecord, nil] returns model
+        # by {Anoubis::Etc::Base#action self.etc.action} attribute.
+        # @return [Anoubis::ApplicationRecord, nil] returns model
         def parent_model
           nil
         end
@@ -136,7 +136,7 @@ module Anubis
         ##
         # Returns eager load parameters for parent model  that are used for controller actions. By default it's set to \[\].
         # This procedure could be redefined in customer controller. Different eager loads may be defined according
-        # by {Anubis::Etc::Base#action self.etc.action} attribute.
+        # by {Anoubis::Etc::Base#action self.etc.action} attribute.
         def parent_eager_load
           []
         end

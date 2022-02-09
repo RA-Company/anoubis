@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module Anubis
+module Anoubis
   RSpec.describe Tenant, type: :model do
     it "is valid" do
       expect(build_stubbed(:tenant)).to be_valid
@@ -44,14 +44,14 @@ module Anubis
     end
 
     it "can't change system tenant ident" do
-      tenant = Anubis::Tenant.find(1)
+      tenant = Anoubis::Tenant.find(1)
       tenant.ident = 'tst'
       expect(tenant.save).to eq false
     end
 
     it "can destroy" do
       tenant = create :tenant, title: 'Destroy', ident: 'dst'
-      Anubis::TenantSystem.where(tenant_id: tenant.id).each do |item|
+      Anoubis::TenantSystem.where(tenant_id: tenant.id).each do |item|
         item.destroy
       end
       tenant.destroy
@@ -59,7 +59,7 @@ module Anubis
     end
 
     it "can't destroy system tenant" do
-      tenant = Anubis::Tenant.find(1)
+      tenant = Anoubis::Tenant.find(1)
       tenant.destroy
       expect(tenant.destroyed?).to eq false
     end

@@ -1,4 +1,4 @@
-class Anubis::Sso::Server::UserController < Anubis::Sso::Server::ApplicationController
+class Anoubis::Sso::Server::UserController < Anoubis::Sso::Server::ApplicationController
   def authenticate?
     false
   end

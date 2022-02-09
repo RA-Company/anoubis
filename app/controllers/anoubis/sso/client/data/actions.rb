@@ -1,5 +1,5 @@
 ##
 # Module presents all default actions for for {DataController}.
-module Anubis::Sso::Client::Data::Actions
-  include Anubis::Core::Data::Actions
+module Anoubis::Sso::Client::Data::Actions
+  include Anoubis::Core::Data::Actions
 end

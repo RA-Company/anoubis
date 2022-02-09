@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Core
     module Data
       ##
@@ -6,7 +6,7 @@ module Anubis
       module Load
         ##
         # Loads current menu data. Procedure loads menu data from MySQL database or from Redis cache and places it in
-        # self.etc.menu {Anubis::Etc#menu}
+        # self.etc.menu {Anoubis::Etc#menu}
         def load_menu_data
 
         end
@@ -69,7 +69,7 @@ module Anubis
 
         ##
         # Load data for autocomplete action from database
-        # @param field [Anubis::Etc::Field] - field for loading data
+        # @param field [Anoubis::Etc::Field] - field for loading data
         def load_autocomplete_data(field)
           self.etc.data.data = field.model.model.where(field.model.where).where(field.autocomplete[:where]).where(get_tenant_where(field.model.model)).order(field.model.order).limit(field.autocomplete[:limit])
         end

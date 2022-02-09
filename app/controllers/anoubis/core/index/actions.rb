@@ -1,6 +1,6 @@
 require_dependency "anubis/output/login"
 
-module Anubis
+module Anoubis
   module Core
     ##
     # Module contains all procedures and function for {IndexController}. Consists of {Actions} and {Callbacks} module.
@@ -39,7 +39,7 @@ module Anubis
         #     "message": "Session expired"
         #   }
         def logout
-          self.output = Anubis::Output::Basic.new
+          self.output = Anoubis::Output::Basic.new
           self.redis.del(self.redis_prefix + 'ses_'+self.token)
           respond_to do |format|
             format.json { render json: self.output.to_h }

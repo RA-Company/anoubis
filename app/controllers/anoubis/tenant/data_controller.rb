@@ -8,21 +8,21 @@ require_dependency "anubis/tenant/data/defaults"
 require_dependency "anubis/tenant/data/convert"
 require_dependency "anubis/tenant/data/callbacks"
 
-module Anubis
+module Anoubis
   ##
   # Module presents all core functions for Anubis Library
   module Tenant
     ##
     # Controller consists all procedures and function for presents and modify models data.
-    class DataController < Anubis::Tenant::ApplicationController
-      include Anubis::Tenant::Data::Actions
-      include Anubis::Tenant::Data::Load
-      include Anubis::Tenant::Data::Get
-      include Anubis::Tenant::Data::Set
-      include Anubis::Tenant::Data::Setup
-      include Anubis::Tenant::Data::Defaults
-      include Anubis::Tenant::Data::Convert
-      include Anubis::Tenant::Data::Callbacks
+    class DataController < Anoubis::Tenant::ApplicationController
+      include Anoubis::Tenant::Data::Actions
+      include Anoubis::Tenant::Data::Load
+      include Anoubis::Tenant::Data::Get
+      include Anoubis::Tenant::Data::Set
+      include Anoubis::Tenant::Data::Setup
+      include Anoubis::Tenant::Data::Defaults
+      include Anoubis::Tenant::Data::Convert
+      include Anoubis::Tenant::Data::Callbacks
     end
   end
 end

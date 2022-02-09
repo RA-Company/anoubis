@@ -1,6 +1,6 @@
 ##
-# Default ApplicationRecord for Anubis::Core library.
-class Anubis::Core::ApplicationRecord < ActiveRecord::Base
+# Default ApplicationRecord for Anoubis::Core library.
+class Anoubis::Core::ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
   # @!attribute created_at
@@ -39,7 +39,7 @@ class Anubis::Core::ApplicationRecord < ActiveRecord::Base
   public
 
   ##
-  # Is called after initialization Anubis::Core ActiveRecord. Sets default parameters.
+  # Is called after initialization Anoubis::Core ActiveRecord. Sets default parameters.
   def after_initialize_core_anubis_model
     self.need_refresh = false
     self.redis = Redis.new

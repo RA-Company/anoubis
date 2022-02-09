@@ -1,4 +1,4 @@
-class Anubis::SessionService < Anubis::CoreService
+class Anoubis::SessionService < Anoubis::CoreService
   def initialize
     super
   end

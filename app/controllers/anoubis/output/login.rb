@@ -1,4 +1,4 @@
-module Anubis
+module Anoubis
   module Output
     ##
     # Output subclass that represents data for login action
