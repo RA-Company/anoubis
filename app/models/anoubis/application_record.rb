@@ -24,7 +24,7 @@ class Anoubis::ApplicationRecord < ActiveRecord::Base
   # @return [String] {https://github.com/redis/redis-rb Redis} prefix
   def redis_prefix
     begin
-      value = Rails.configuration.redis_prefix
+      value = Rails.configuration.anoubis_redis_prefix
     rescue
       return ''
     end
@@ -36,7 +36,7 @@ class Anoubis::ApplicationRecord < ActiveRecord::Base
   # @return [String] {https://github.com/redis/redis-rb Redis} prefix
   def self.redis_prefix
     begin
-      value = Rails.configuration.redis_prefix
+      value = Rails.configuration.anoubis_redis_prefix
     rescue
       return ''
     end
