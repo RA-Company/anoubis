@@ -27,9 +27,13 @@ en:
         page_title: Users management
         short_title: Users
 
+
+
+
   anoubis:
     all: All
     success: Successful
+    error: Error
 
 
 

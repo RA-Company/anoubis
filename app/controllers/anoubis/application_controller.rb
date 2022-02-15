@@ -55,6 +55,14 @@ class Anoubis::ApplicationController < ActionController::API
     rescue
       I18n.locale = default_locale
     end
+
+    after_anoubis_initialization
+  end
+
+  ##
+  # Procedure fires after initializes all parameters
+  def after_anoubis_initialization
+
   end
 
   ##
