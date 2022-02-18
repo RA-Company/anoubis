@@ -39,6 +39,12 @@ ru:
     all: Все
     success: Успешное завершение
     error: Ошибка
+    install:
+      menu:
+        dashboard:
+          title: Дашборд
+          page_title: Дашборд
+          short_title: Дашборд
 
 
 
@@ -91,7 +97,7 @@ ru:
         - окт
         - ноя
         - дек
-    install:
+    install2:
       groups:
         admin: Администраторы
         user: Пользователи

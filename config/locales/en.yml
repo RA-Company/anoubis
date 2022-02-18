@@ -34,13 +34,19 @@ en:
     all: All
     success: Successful
     error: Error
+    install:
+      menu:
+        dashboard:
+          title: Dashboard
+          page_title: Dashboad
+          short_title: Dashboard
 
 
 
 
     default_tab: Default
     default_tab_hint: This is default tab
-    install:
+    install2:
       groups:
         admin: Administrators
         user: Users
