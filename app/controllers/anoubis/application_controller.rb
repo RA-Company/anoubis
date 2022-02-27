@@ -69,12 +69,16 @@ class Anoubis::ApplicationController < ActionController::API
   # Generates options headers for CORS requests
   # @param methods [String] list of allowed HTTP actions separated by space <i>(e.g. 'GET POST DELETE')</i>
   def options(methods = 'POST')
-    if check_origin
-      headers['Access-Control-Allow-Origin'] = request.headers['origin']
-      headers['Access-Control-Allow-Methods'] = methods
-      headers['Access-Control-Max-Age'] = '1000'
-      headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,Authorization'
-    end
+    return unless check_origin
+    return unless request.origin
+
+    headers['Access-Control-Allow-Origin'] = request.headers['origin']
+    headers['Access-Control-Allow-Methods'] = methods
+
+    return if request.method != 'OPTIONS'
+
+    headers['Access-Control-Max-Age'] = '1000'
+    headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,Authorization'
   end
 
   ##
