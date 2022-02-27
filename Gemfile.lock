@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    anoubis (1.0.0)
+    anoubis (1.0.1)
       bcrypt (>= 3.1.16)
       mysql2 (>= 0.5.3)
       rails (>= 7.0.0)
@@ -215,4 +215,4 @@ DEPENDENCIES
   rspec-rails
 
 BUNDLED WITH
-   2.1.4
+   2.3.6
