@@ -21,6 +21,16 @@ Or install it yourself as:
 $ gem install anoubis
 ```
 
+## Configuration parameters
+
+This configuration parameters can be placed at files config/application.rb for global configuration or config/environments/<environment>.rb for custom environment configuration.
+
+```ruby
+config.graylog_server = '127.0.0.1' # Graylog server (By default set as '127.0.0.1') (*optional)
+config.graylog_port = 12201 # Graylog server port (By default set as 12201) (*optional)
+config.graylog_facility = 'Graylog' # Graylog source identifier (By default set as 'Graylog') (*optional)
+```
+
 ## Contributing
 Contribution directions go here.
 
