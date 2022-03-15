@@ -36,15 +36,26 @@ ru:
 
 
   anoubis:
-    all: Все
-    success: Успешное завершение
-    error: Ошибка
+    all: "Все"
+    success: "Успешное завершение"
+    error: "Ошибка"
+    errors:
+      incorrect_login: "Некорректный логин или пароль"
+      session_expired: "Сессия завершена"
+      incorrect_user: "Некорректный пользователь"
+      access_not_allowed: "Доступ запрещен"
     install:
       menu:
         dashboard:
-          title: Дашборд
-          page_title: Дашборд
-          short_title: Дашборд
+          title: "Дашборд"
+          page_title: "Дашборд"
+          short_title: "Дашборд"
+
+
+
+
+
+
 
 
 

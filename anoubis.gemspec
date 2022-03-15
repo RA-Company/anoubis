@@ -15,6 +15,11 @@ Gem::Specification.new do |s|
   s.license     = "MIT"
   s.required_ruby_version = '>= 2.7.1'
 
+  s.metadata["homepage_uri"] = s.homepage
+  s.metadata["source_code_uri"] = "https://github.com/RA-Company/" + s.name
+  s.metadata["changelog_uri"] = "https://github.com/RA-Company/" + s.name + "/blob/main/CHANGELOG.md"
+  s.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/" + s.name + "/" + s.version.to_s
+
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.test_files = Dir["spec/**/*"]

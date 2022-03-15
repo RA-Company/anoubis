@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    anoubis (1.0.1)
+    anoubis (1.0.2)
       bcrypt (>= 3.1.16)
+      gelf (>= 3.1.0)
       mysql2 (>= 0.5.3)
       rails (>= 7.0.0)
       redis (>= 4.5.1)
@@ -76,7 +77,7 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    bcrypt (3.1.16)
+    bcrypt (3.1.17)
     builder (3.2.4)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
@@ -90,6 +91,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    gelf (3.1.0)
+      json
     globalid (1.0.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -98,6 +101,7 @@ GEM
     i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     io-wait (0.2.1)
+    json (2.6.1)
     loofah (2.13.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -197,7 +201,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8)
+    unf_ext (0.0.8.1)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)

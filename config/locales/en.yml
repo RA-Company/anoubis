@@ -30,16 +30,30 @@ en:
 
 
 
+
+
+
   anoubis:
-    all: All
-    success: Successful
-    error: Error
+    all: "All"
+    success: "Successful"
+    error: "Error"
+    errors:
+      incorrect_login: "Incorrect login or password"
+      incorrect_user: "Incorrect user"
+      access_not_allowed: "Access not allowed"
+      session_expired: "Session expired"
     install:
       menu:
         dashboard:
-          title: Dashboard
-          page_title: Dashboad
-          short_title: Dashboard
+          title: "Dashboard"
+          page_title: "Dashboard"
+          short_title: "Dashboard"
+
+
+
+
+
+
 
 
 
