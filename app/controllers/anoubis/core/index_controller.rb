@@ -1,6 +1,6 @@
-require_dependency "anubis/core/application_controller"
-require_dependency "anubis/core/index/actions"
-require_dependency "anubis/core/index/callbacks"
+require_dependency "anoubis/core/application_controller"
+require_dependency "anoubis/core/index/actions"
+require_dependency "anoubis/core/index/callbacks"
 
 module Anoubis
   module Core

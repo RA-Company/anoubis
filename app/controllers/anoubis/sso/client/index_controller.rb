@@ -1,5 +1,5 @@
-require_dependency "anubis/sso/client/index/actions"
-require_dependency "anubis/sso/client/index/callbacks"
+require_dependency "anoubis/sso/client/index/actions"
+require_dependency "anoubis/sso/client/index/callbacks"
 
 class Anoubis::Sso::Client::IndexController < Anoubis::Sso::Client::ApplicationController
   include Anoubis::Sso::Client::Index::Actions

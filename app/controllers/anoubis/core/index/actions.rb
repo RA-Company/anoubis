@@ -1,4 +1,4 @@
-require_dependency "anubis/output/login"
+require_dependency "anoubis/output/login"
 
 module Anoubis
   module Core

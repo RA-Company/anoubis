@@ -1,12 +1,12 @@
-require_dependency "anubis/core/application_controller"
-require_dependency "anubis/core/data/actions"
-require_dependency "anubis/core/data/load"
-require_dependency "anubis/core/data/get"
-require_dependency "anubis/core/data/set"
-require_dependency "anubis/core/data/setup"
-require_dependency "anubis/core/data/defaults"
-require_dependency "anubis/core/data/convert"
-require_dependency "anubis/core/data/callbacks"
+require_dependency "anoubis/core/application_controller"
+require_dependency "anoubis/core/data/actions"
+require_dependency "anoubis/core/data/load"
+require_dependency "anoubis/core/data/get"
+require_dependency "anoubis/core/data/set"
+require_dependency "anoubis/core/data/setup"
+require_dependency "anoubis/core/data/defaults"
+require_dependency "anoubis/core/data/convert"
+require_dependency "anoubis/core/data/callbacks"
 
 module Anoubis
   ##

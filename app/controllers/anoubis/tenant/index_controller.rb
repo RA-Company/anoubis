@@ -1,6 +1,6 @@
-require_dependency "anubis/tenant/application_controller"
-require_dependency "anubis/tenant/index/actions"
-require_dependency "anubis/tenant/index/callbacks"
+require_dependency "anoubis/tenant/application_controller"
+require_dependency "anoubis/tenant/index/actions"
+require_dependency "anoubis/tenant/index/callbacks"
 
 module Anoubis
   ##
