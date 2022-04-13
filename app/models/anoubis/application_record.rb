@@ -112,4 +112,15 @@ class Anoubis::ApplicationRecord < ActiveRecord::Base
 
     false
   end
+
+  ##
+  # Checks if this record may be destroyed.
+  def can_destroy?
+    result = true
+    self.class.reflect_on_all_associations.all? do |assoc|
+      result = self.send(assoc.name).nil? if assoc.macro == :has_one
+      result = self.send(assoc.name).empty? if (assoc.macro == :has_many) && result
+    end
+    result
+  end
 end
