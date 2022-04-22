@@ -39,6 +39,8 @@ ru:
     all: "Все"
     success: "Успешное завершение"
     error: "Ошибка"
+    default_tab: "Основная"
+    default_tab_hint: "Это основная вкладка"
     errors:
       incorrect_login: "Некорректный логин или пароль"
       session_expired: "Сессия завершена"
@@ -66,8 +68,7 @@ ru:
         incorrect_parameters: Некорректные параметры
         error_changing_data: Ошибка изменения данных
 
-    default_tab: Основная
-    default_tab_hint: Это основная вкладка
+
     months:
       main:
         - Январь

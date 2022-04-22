@@ -123,4 +123,11 @@ class Anoubis::ApplicationRecord < ActiveRecord::Base
     end
     result
   end
+
+  ##
+  # Returns system title of table element
+  # @return [String] System title
+  def sys_title
+    id.to_s
+  end
 end

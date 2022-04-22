@@ -30,7 +30,7 @@ module Anoubis
         self.result = 0
         self.tab = ''
         self.messages = {
-            '0': I18n.t('success'),
+            '0': I18n.t('anoubis.success'),
             '-1': I18n.t('errors.access_not_allowed'),
             '-2': I18n.t('errors.incorrect_parameters')
         }

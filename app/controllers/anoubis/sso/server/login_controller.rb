@@ -23,7 +23,7 @@ class Anoubis::Sso::Server::LoginController < Anoubis::Sso::Server::ApplicationC
 
     result = {
       result: 0,
-      message: I18n.t('core.success')
+      message: I18n.t('anoubis.success')
     }
     code = 200
 
@@ -107,7 +107,7 @@ class Anoubis::Sso::Server::LoginController < Anoubis::Sso::Server::ApplicationC
   def create
     result = {
       result: 0,
-      message: I18n.t('core.success')
+      message: I18n.t('anoubis.success')
     }
     code = 200
 
@@ -155,7 +155,7 @@ class Anoubis::Sso::Server::LoginController < Anoubis::Sso::Server::ApplicationC
   def update
     result = {
       result: 0,
-      message: I18n.t('core.success')
+      message: I18n.t('anoubis.success')
     }
 
     if self.system
@@ -213,7 +213,7 @@ class Anoubis::Sso::Server::LoginController < Anoubis::Sso::Server::ApplicationC
   def destroy
     result = {
       result: 0,
-      message: I18n.t('core.success')
+      message: I18n.t('anoubis.success')
     }
 
     begin
@@ -263,7 +263,7 @@ class Anoubis::Sso::Server::LoginController < Anoubis::Sso::Server::ApplicationC
   def show
     result = {
       result: 0,
-      message: I18n.t('core.success')
+      message: I18n.t('anoubis.success')
     }
 
     if self.system

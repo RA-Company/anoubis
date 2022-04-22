@@ -6,7 +6,7 @@ class Anoubis::Sso::Server::UserController < Anoubis::Sso::Server::ApplicationCo
   def show
     result = {
       result: 0,
-      message: I18n.t('anubis.core.success')
+      message: I18n.t('anoubis.success')
     }
     code = 200
 
@@ -25,7 +25,7 @@ class Anoubis::Sso::Server::UserController < Anoubis::Sso::Server::ApplicationCo
   def update
     result = {
       result: 0,
-      message: I18n.t('anubis.core.success')
+      message: I18n.t('anoubis.success')
     }
     code = 200
 

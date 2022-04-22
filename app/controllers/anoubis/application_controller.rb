@@ -10,6 +10,10 @@ class Anoubis::ApplicationController < ActionController::API
   ## Current used locale
   attr_accessor :locale
 
+  # @!attribute [rw] output
+  #    @return [Anoubis::Output] standard output.
+  attr_accessor :output
+
   ##
   # Returns default locale initialized in application configuration file. Variable is taken from {https://guides.rubyonrails.org/i18n.html Rails.configuration.i18n.default_locale} parameter
   # @return [String] default locale
