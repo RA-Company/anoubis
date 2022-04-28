@@ -104,7 +104,7 @@ module Anoubis
         self.after_get_table_data
         self.before_output
 
-        render json: around_output(self.output.to_h)
+        render json: around_output(output.to_h)
       end
 
       ##
@@ -193,7 +193,7 @@ module Anoubis
         setup_frame
         before_output
 
-        render json: self.output.to_h
+        render json: around_output(output.to_h)
       end
 
       ##
@@ -304,9 +304,8 @@ module Anoubis
                                 default: I18n.t('anubis.form.titles.show', title: self.output.values[:sys_title]))
         end
         self.before_output
-        respond_to do |format|
-          format.json { render json: self.output.to_h }
-        end
+
+        render json: around_output(output.to_h)
       end
 
       ##
@@ -409,10 +408,7 @@ module Anoubis
         end
         self.before_output
 
-
-        respond_to do |format|
-          format.json { render json: self.output.to_h }
-        end
+        render json: around_output(output.to_h)
       end
 
       ##
@@ -533,9 +529,8 @@ module Anoubis
           self.output.result = -2
         end
         self.before_output
-        respond_to do |format|
-          format.json { render json: self.output.to_h }
-        end
+
+        render json: around_output(output.to_h)
       end
 
       ##
@@ -650,9 +645,8 @@ module Anoubis
                                 default: I18n.t('anubis.form.titles.edit', title: self.output.values[:sys_title]))
         end
         self.before_output
-        respond_to do |format|
-          format.json { render json: self.output.to_h }
-        end
+
+        render json: around_output(output.to_h)
       end
 
       ##
@@ -766,9 +760,8 @@ module Anoubis
           self.output.result = -1
         end
         self.before_output
-        respond_to do |format|
-          format.json { render json: self.output.to_h }
-        end
+
+        render json: around_output(output.to_h)
       end
 
       ##
@@ -849,9 +842,8 @@ module Anoubis
           self.output.result = -1
         end
         self.before_output
-        respond_to do |format|
-          format.json { render json: self.output.to_h }
-        end
+
+        render json: around_output(output.to_h)
       end
 
       ##
@@ -877,9 +869,8 @@ module Anoubis
           end
         end
         self.before_output
-        respond_to do |format|
-          format.json { render json: self.output.to_h }
-        end
+
+        render json: around_output(output.to_h)
       end
 
       ##
