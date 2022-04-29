@@ -2,8 +2,28 @@
 class Anoubis::ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
+  after_initialize :initialize_anubis_application_record
+
   ## Redis database variable
   attr_accessor :redis
+
+  # @!attribute [rw] need_refresh
+  #   @return [Boolean] defines when table representation data should be updated even after simple update
+  attr_accessor :need_refresh
+
+  ##
+  # Fires after ApplicationRecord initialized for define default values
+  def initialize_anubis_application_record
+    self.need_refresh = false
+
+    after_initialize_anubis_application_record
+  end
+
+  ##
+  # Fires after initialize default variables
+  def after_initialize_anubis_application_record
+
+  end
 
   ##
   # Returns {https://github.com/redis/redis-rb Redis database} class
@@ -129,5 +149,38 @@ class Anoubis::ApplicationRecord < ActiveRecord::Base
   # @return [String] System title
   def sys_title
     id.to_s
+  end
+
+  ##
+  # Returns the ability to create new data. By default all items may be deleted. For another result
+  # procedure should be overridden.
+  # @param args [Hash] transferred parameters
+  # @option args [String] :controller Called controller identifier
+  # @option args [String] :tab Called controller tab element
+  # @return [Boolean] true if new data may be created.
+  def can_new(args = {})
+    true
+  end
+
+  ##
+  # Returns the ability to edit the data. By default all items may be edited. For another result
+  # procedure should be overridden.
+  # @param args [Hash] transferred parameters
+  # @option args [String] :controller Called controller identifier
+  # @option args [String] :tab Called controller tab element
+  # @return [Boolean] true if data may be edited
+  def can_edit(args = {})
+    true
+  end
+
+  ##
+  # Returns the ability to delete a data. By default all items may be deleted. For another result
+  # procedure should be overridden.
+  # @param args [Hash] transferred parameters
+  # @option args [String] :controller Called controller identifier
+  # @option args [String] :tab Called controller tab element
+  # @return [Boolean] true if data may be deleted
+  def can_delete(args = {})
+    true
   end
 end
