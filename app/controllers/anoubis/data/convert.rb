@@ -143,12 +143,8 @@ module Anoubis
         #puts value.class
         if (value.class == Date) || (value.class == ActiveSupport::TimeWithZone)
           begin
-            new_value = case field.format
-                        when 'month' then I18n.t('anubis.months.main')[value.month-1]+' '+value.year.to_s
-                        when 'date' then value.day.to_s+' '+ I18n.t('anubis.months.second')[value.month-1]+' '+value.year.to_s
-                        when 'datetime' then value.day.to_s+' '+ I18n.t('anubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)
-                        else value.day.to_s+' '+ I18n.t('anubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)+':'+('%02d' % value.sec)
-                        end
+            new_value = convert_datetime_to_string value, field.format
+
             if %w[month date].include? field.format
               raw_value = value.year.to_s + '-' + ('%02d' % value.month) + '-' + ('%02d' % value.day)
             else
@@ -170,7 +166,18 @@ module Anoubis
         return { key => new_value, format('%s_raw', key).to_sym => value }
       end
 
+      ##
+      # Converts DateTime representation to string value
+      # @param value [DateTime] date and time
+      # @param format [String] convert representation ('month' - return only month and year, 'date' - returns only date, 'datetime' - returns date and time)
+      # @return Returns date and time representation string
+      def convert_datetime_to_string(value, format)
+        return I18n.t('anubis.months.main')[value.month-1]+' '+value.year.to_s if format == 'month'
+        return value.day.to_s+' '+ I18n.t('anubis.months.second')[value.month-1]+' '+value.year.to_s if format == 'date'
+        return value.day.to_s+' '+ I18n.t('anubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min) if format == 'datetime'
 
+        value.day.to_s+' '+ I18n.t('anubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)+':'+('%02d' % value.sec)
+      end
 
 
 
