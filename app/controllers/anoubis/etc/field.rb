@@ -153,6 +153,13 @@ module Anoubis
       end
 
       ##
+      # Initialize additional parameters for {Anoubis::Etc::Field#type 'hash' field type} for controller actions.
+      # @param options [Hash] field's initial options
+      def initialize_hash (options)
+
+      end
+
+      ##
       # Initialize additional parameters for {Anoubis::Etc::Field#type 'number' field type} for controller actions.
       # @param options [Hash] field's initial options
       def initialize_number (options)

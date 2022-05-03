@@ -167,6 +167,16 @@ module Anoubis
       end
 
       ##
+      # Convert value from database to view format for 'hash' type
+      # @param key [Symbol] field's identifier in {Anoubis::Etc::Data#fields self.etc.data.fields} structure
+      # @param value [String] value from database
+      # @return [Hash] returns text representation of database value
+      def convert_db_to_view_value_hash(key, value)
+        return { key => '' } if !value
+        return { key => value }
+      end
+
+      ##
       # Converts DateTime representation to string value
       # @param value [DateTime] date and time
       # @param format [String] convert representation ('month' - return only month and year, 'date' - returns only date, 'datetime' - returns date and time)
