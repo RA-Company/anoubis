@@ -301,7 +301,7 @@ module Anoubis
         end
         if self.output.result == 0
           self.output.title = I18n.t(format('%s.show.form.title', params[:controller].sub('/', '.')), title: self.output.values[:sys_title],
-                                default: I18n.t('anubis.form.titles.show', title: self.output.values[:sys_title]))
+                                default: I18n.t('anoubis.form.titles.show', title: self.output.values[:sys_title]))
         end
         self.before_output
 
@@ -404,7 +404,7 @@ module Anoubis
           self.output.result = -1
         end
         if self.output.result == 0
-          self.output.title = I18n.t(format('%s.%s.form.title', params[:controller].sub('/', '.'), action), default: I18n.t('anubis.form.titles.new'))
+          self.output.title = I18n.t(format('%s.%s.form.title', params[:controller].sub('/', '.'), action), default: I18n.t('anoubis.form.titles.new'))
         end
         self.before_output
 
@@ -642,7 +642,7 @@ module Anoubis
         end
         if self.output.result == 0
           self.output.title = I18n.t(format('%s.edit.form.title', params[:controller].sub('/', '.')), title: self.output.values[:sys_title],
-                                default: I18n.t('anubis.form.titles.edit', title: self.output.values[:sys_title]))
+                                default: I18n.t('anoubis.form.titles.edit', title: self.output.values[:sys_title]))
         end
         self.before_output
 

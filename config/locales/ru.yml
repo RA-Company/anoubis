@@ -52,6 +52,11 @@ ru:
           title: "Дашборд"
           page_title: "Дашборд"
           short_title: "Дашборд"
+    form:
+      titles:
+        edit: "Редактирование элемента: %{title}"
+        show: "Просмотр элемента: %{title}"
+        new: "Добавление нового элемента"
 
 
 
@@ -123,11 +128,6 @@ ru:
       buttons:
         edit: "Редактировать: %{title}"
         delete: "Удалить: %{title}"
-    form:
-      titles:
-        edit: "Редактирование элемента: %{title}"
-        show: "Просмотр элемента: %{title}"
-        new: "Добавление нового элемента"
 
     tenants:
       errors:
