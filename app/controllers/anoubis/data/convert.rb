@@ -139,8 +139,8 @@ module Anoubis
       # Convert value from database to table view for datetime type
       def convert_db_to_view_value_datetime(key, value)
         field = self.etc.data.fields[key]
-        puts key
-        puts value.class
+        #puts key
+        #puts value.class
         if (value.class == Date) || (value.class == ActiveSupport::TimeWithZone)
           begin
             new_value = convert_datetime_to_string value, field.format
