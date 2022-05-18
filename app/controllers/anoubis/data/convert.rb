@@ -139,8 +139,8 @@ module Anoubis
       # Convert value from database to table view for datetime type
       def convert_db_to_view_value_datetime(key, value)
         field = self.etc.data.fields[key]
-        #puts key
-        #puts value.class
+        puts key
+        puts value.class
         if (value.class == Date) || (value.class == ActiveSupport::TimeWithZone)
           begin
             new_value = convert_datetime_to_string value, field.format
@@ -182,11 +182,11 @@ module Anoubis
       # @param format [String] convert representation ('month' - return only month and year, 'date' - returns only date, 'datetime' - returns date and time)
       # @return Returns date and time representation string
       def convert_datetime_to_string(value, format)
-        return I18n.t('anubis.months.main')[value.month-1]+' '+value.year.to_s if format == 'month'
-        return value.day.to_s+' '+ I18n.t('anubis.months.second')[value.month-1]+' '+value.year.to_s if format == 'date'
-        return value.day.to_s+' '+ I18n.t('anubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min) if format == 'datetime'
+        return I18n.t('anoubis.months.main')[value.month-1]+' '+value.year.to_s if format == 'month'
+        return value.day.to_s+' '+ I18n.t('anoubis.months.second')[value.month-1]+' '+value.year.to_s if format == 'date'
+        return value.day.to_s+' '+ I18n.t('anoubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min) if format == 'datetime'
 
-        value.day.to_s+' '+ I18n.t('anubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)+':'+('%02d' % value.sec)
+        value.day.to_s+' '+ I18n.t('anoubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)+':'+('%02d' % value.sec)
       end
 
 
@@ -236,10 +236,10 @@ module Anoubis
       def convert_db_to_table_value_datetime1(key, field, value)
         begin
           value = case field[:format]
-                  when 'month' then I18n.t('months.main')[value.month-1]+' '+value.year.to_s
-                  when 'date' then value.day.to_s+' '+ I18n.t('months.second')[value.month-1]+' '+value.year.to_s
-                  when 'datetime' then value.day.to_s+' '+ I18n.t('months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)
-                  else value.day.to_s+' '+ I18n.t('months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)+':'+('%02d' % value.sec)
+                  when 'month' then I18n.t('anoubis.months.main')[value.month-1]+' '+value.year.to_s
+                  when 'date' then value.day.to_s+' '+ I18n.t('anoubis.months.second')[value.month-1]+' '+value.year.to_s
+                  when 'datetime' then value.day.to_s+' '+ I18n.t('anoubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)
+                  else value.day.to_s+' '+ I18n.t('anoubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)+':'+('%02d' % value.sec)
                   end
         rescue
           value = I18n.t('incorrect_field_format')
@@ -266,10 +266,10 @@ module Anoubis
       def convert_db_to_table_value_datetime(key, field, value)
         begin
           value = case field[:format]
-                  when 'month' then I18n.t('months.main')[value.month-1]+' '+value.year.to_s
-                  when 'date' then value.day.to_s+' '+ I18n.t('months.second')[value.month-1]+' '+value.year.to_s
-                  when 'datetime' then value.day.to_s+' '+ I18n.t('months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)
-                  else value.day.to_s+' '+ I18n.t('months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)+':'+('%02d' % value.sec)
+                  when 'month' then I18n.t('anoubis.months.main')[value.month-1]+' '+value.year.to_s
+                  when 'date' then value.day.to_s+' '+ I18n.t('anoubis.months.second')[value.month-1]+' '+value.year.to_s
+                  when 'datetime' then value.day.to_s+' '+ I18n.t('anoubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)
+                  else value.day.to_s+' '+ I18n.t('anoubis.months.second')[value.month-1]+' '+value.year.to_s+', '+value.hour.to_s+':'+('%02d' % value.min)+':'+('%02d' % value.sec)
                   end
         rescue
           value = I18n.t('incorrect_field_format')
