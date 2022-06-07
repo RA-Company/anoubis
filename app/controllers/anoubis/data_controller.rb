@@ -10,6 +10,7 @@ require_dependency "anoubis/data/callbacks"
 ##
 # Main data controller class
 class Anoubis::DataController < Anoubis::ApplicationController
+  include ActionController::MimeResponds
   include Anoubis::Data::Actions
   include Anoubis::Data::Load
   include Anoubis::Data::Get

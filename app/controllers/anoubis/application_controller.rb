@@ -14,6 +14,10 @@ class Anoubis::ApplicationController < ActionController::API
   #    @return [Anoubis::Output] standard output.
   attr_accessor :output
 
+  # @!attribute [rw] exports
+  #   @return [Anubis::Export] Export data class
+  attr_accessor :exports
+
   ##
   # Returns default locale initialized in application configuration file. Variable is taken from {https://guides.rubyonrails.org/i18n.html Rails.configuration.i18n.default_locale} parameter
   # @return [String] default locale
@@ -54,6 +58,7 @@ class Anoubis::ApplicationController < ActionController::API
     self.locale = params[:locale] if params.has_key? :locale
     self.locale = default_locale unless self.locale
     self.locale = default_locale if self.locale == ''
+    self.exports = nil
     begin
       I18n.locale = locale
     rescue
