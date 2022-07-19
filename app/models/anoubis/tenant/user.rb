@@ -73,7 +73,7 @@ class Anoubis::Tenant::User < ApplicationRecord
   belongs_to :tenant, class_name: 'Anoubis::Tenant::Tenant'
   has_many :user_groups, class_name: 'Anoubis::Tenant::UserGroup'
 
-  has_one_attached :avatar
+  #has_one_attached :avatar
 
   ##
   # Is called before validation when new user is being created. Checks user parameters before create new user.
