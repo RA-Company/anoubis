@@ -41,7 +41,7 @@ class Anoubis::Core::ApplicationController < ActionController::API
   ##
   # Returns redis database class
   def redis
-    @redis ||= Redis.new
+    @redis ||= Redis.new( host: redis_host, port: redis_port )
   end
 
   ##

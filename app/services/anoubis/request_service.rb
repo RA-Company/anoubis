@@ -1,12 +1,6 @@
 ##
 # Request service
-class Anoubis::RequestService
-  ## Redis database variable
-  attr_accessor :redis
-
-  ## Returns {https://github.com/redis/redis-rb Redis} prefix for storing cache data
-  attr_accessor :redis_prefix
-
+class Anoubis::RequestService < Anoubis::CoreService
   ## Log service {Anoubis::LogService}
   attr_accessor :log
 
@@ -17,9 +11,9 @@ class Anoubis::RequestService
   # Setups basic initialization parameters.
   # @param log [Anoubis::LogService] Log service
   def initialize(log = nil)
-    self.redis = Redis.new
     @cookies = nil
     self.log = log ? log : Anoubis::LogService.new
+    super
   end
 
   ##
@@ -113,22 +107,5 @@ class Anoubis::RequestService
     end
 
     cookies
-  end
-
-  ##
-  # Returns {https://github.com/redis/redis-rb Redis} prefix for storing cache data. Prefix can be set in Rails.configuration.anoubis_redis_prefix configuration parameter.
-  # @return [String] {https://github.com/redis/redis-rb Redis} prefix
-  def redis_prefix
-    @redis_prefix ||= get_redis_prefix
-  end
-
-  private def get_redis_prefix
-    begin
-      value = Rails.configuration.anoubis_redis_prefix
-    rescue
-      return ''
-    end
-
-    value + ':'
   end
 end

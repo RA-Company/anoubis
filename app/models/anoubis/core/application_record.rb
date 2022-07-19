@@ -42,7 +42,7 @@ class Anoubis::Core::ApplicationRecord < ActiveRecord::Base
   # Is called after initialization Anoubis::Core ActiveRecord. Sets default parameters.
   def after_initialize_core_anubis_model
     self.need_refresh = false
-    self.redis = Redis.new
+    self.redis = Redis.new( host: redis_host, port: redis_port )
     self.current_user = nil
   end
 
@@ -201,7 +201,7 @@ class Anoubis::Core::ApplicationRecord < ActiveRecord::Base
   ##
   # Returns reference to Redis database
   def self.redis
-    Redis.new
+    Redis.new( host: Anoubis::ApplicationRecord.redis_host, port: Anoubis::ApplicationRecord.redis_port )
   end
 
   # @!endgroup

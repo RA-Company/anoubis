@@ -32,7 +32,7 @@ class Anoubis::ApplicationController < ActionController::API
   # Returns {https://github.com/redis/redis-rb Redis database} class
   # @return [Class] {https://github.com/redis/redis-rb Redis} class reference
   def redis
-    @redis ||= Redis.new
+    @redis ||= Redis.new( host: redis_host, port: redis_port )
   end
 
   ##
@@ -50,6 +50,32 @@ class Anoubis::ApplicationController < ActionController::API
     end
 
     value + ':'
+  end
+
+  ##
+  # Returns defined {https://github.com/redis/redis-rb Redis} server host (By default return 127.0.0.1)
+  # @return [String] {https://github.com/redis/redis-rb Redis} server host
+  def redis_host
+    begin
+      value = Rails.configuration.anoubis_redis_host
+    rescue
+      value = '127.0.0.1'
+    end
+
+    value
+  end
+
+  ##
+  # Returns defined {https://github.com/redis/redis-rb Redis} server port (By default return 6379)
+  # @return [Number] {https://github.com/redis/redis-rb Redis} server port
+  def redis_port
+    begin
+      value = Rails.configuration.anoubis_redis_port
+    rescue
+      value = 6379
+    end
+
+    value
   end
 
   ##
