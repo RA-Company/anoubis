@@ -47,7 +47,8 @@ class Anoubis::LogService
 
   ##
   # Setups basic initialization parameters.
-  def initialize
+  # @param options [Hash] array of parameters
+  def initialize(options = {})
     self.logger = GELF::Notifier.new(url, port, 'WAN', { facility: facility })
     logger.collect_file_and_line = false
     logger.rescue_network_errors = true

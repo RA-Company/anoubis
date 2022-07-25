@@ -9,11 +9,15 @@ class Anoubis::RequestService < Anoubis::CoreService
 
   ##
   # Setups basic initialization parameters.
-  # @param log [Anoubis::LogService] Log service
-  def initialize(log = nil)
+  # @param options [Hash] array of initial parameters
+  # @option options [Anoubis::LogService] :log Log service
+  def initialize(options = {})
     @cookies = nil
-    self.log = log ? log : Anoubis::LogService.new
-    super
+    options = {} unless options
+    options = {} unless options.class == Hash
+    options[:log] = Anoubis::LogService.new unless options.key? :log
+    self.log = options[:log] ? options[:log] : Anoubis::LogService.new
+    super options
   end
 
   ##

@@ -27,7 +27,10 @@ class Anoubis::CoreService
     value
   end
 
-  def initialize
+  ##
+  # Initialize core service. Define {https://github.com/redis/redis-rb Redis} service according by parameters.
+  # @param options [Hash] array of parameters
+  def initialize(options = {})
     self.redis = Redis.new( host: redis_host, port: redis_port )
   end
 
