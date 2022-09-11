@@ -16,6 +16,24 @@ ru:
     delete_error: Ошибка удаления данных на сервере
     incorrect_parameters: Некорректные параметры запроса
     field_error: ошибка поля
+    messages:
+      not_in_tenant: отсутсвует в тенанте
+      required: должен существовать
+      too_short:
+        one: "должен быть длиннее одного символа"
+        other: "должен быть больше %{count} символов"
+      too_long:
+        one: "должен быть длиннее одного символа"
+        other: "должен быть короче %{count} символов"
+      invalid: некорректен
+      record_invalid: некорректен
+      taken: уже существует
+      blank: не может быть пустым
+      not_an_integer: должен быть целым числом
+      not_a_number: должен быть вещественным числом
+      greater_than_or_equal_to: "должен быть больше или равен %{count}"
+      less_than_or_equal_to: "должен быть меньше или равен %{count}"
+      inclusion: "значение не попадает в список"
   install:
     menu:
       anoubis/admin:
