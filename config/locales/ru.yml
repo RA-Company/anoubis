@@ -3,50 +3,32 @@ ru:
       edit: "Редактировать: %{title}"
       delete: "Удалить: %{title}"
   errors:
-    no_api_version: Не указана версия API
-    invalid_locale: Некорректная версия локали
-    access_not_allowed: Доступ запрещен
-    authentication_required: Требуется авторизация пользователя
-    session_expired: Сессия завершена
-    invalid_login_parameters: Некорректные параметры входа. Требуется задать 'login' и 'password'.
-    invalid_login_or_password: Некорректный логин или пароль.
-    invalid_menu_output: Некорректный вывод меню
-    internal_error: Внутренняя ошибка сервера
-    update_error: Ошибка обновления данных на сервере
-    delete_error: Ошибка удаления данных на сервере
-    incorrect_parameters: Некорректные параметры запроса
-    field_error: ошибка поля
-    messages:
-      not_in_tenant: отсутсвует в тенанте
-      required: должен существовать
-      too_short:
-        one: "должен быть длиннее одного символа"
-        other: "должен быть больше %{count} символов"
-      too_long:
-        one: "должен быть длиннее одного символа"
-        other: "должен быть короче %{count} символов"
-      invalid: некорректен
-      record_invalid: некорректен
-      taken: уже существует
-      blank: не может быть пустым
-      not_an_integer: должен быть целым числом
-      not_a_number: должен быть вещественным числом
-      greater_than_or_equal_to: "должен быть больше или равен %{count}"
-      less_than_or_equal_to: "должен быть меньше или равен %{count}"
-      inclusion: "значение не попадает в список"
+    no_api_version: "Не указана версия API"
+    invalid_locale: "Некорректная версия локали"
+    access_not_allowed: "Доступ запрещен"
+    authentication_required: "Требуется авторизация пользователя"
+    session_expired: "Сессия завершена"
+    invalid_login_parameters: "Некорректные параметры входа. Требуется задать 'login' и 'password'."
+    invalid_login_or_password: "Некорректный логин или пароль."
+    invalid_menu_output: "Некорректный вывод меню"
+    internal_error: "Внутренняя ошибка сервера"
+    update_error: "Ошибка обновления данных на сервере"
+    delete_error: "Ошибка удаления данных на сервере"
+    incorrect_parameters: "Некорректные параметры запроса"
+    field_error: "ошибка поля"
   install:
     menu:
       anoubis/admin:
-        title: Управление
-        page_title: Управление системой
+        title: "Управление"
+        page_title: "Управление системой"
       anoubis/tenants:
-        title: Тенанты
-        page_title: Управление тенантами
-        short_title: Тенанты
+        title: "Тенанты"
+        page_title: "Управление тенантами"
+        short_title: "Тенанты"
       anoubis/users:
-        title: Пользователи
-        page_title: Управление пользователями
-        short_title: Пользователи
+        title: "Пользователи"
+        page_title: "Управление пользователями"
+        short_title: "Пользователи"
 
 
 
@@ -244,7 +226,8 @@ ru:
         not_a_number: должен быть вещественным числом
         greater_than_or_equal_to: "должен быть больше или равен %{count}"
         less_than_or_equal_to: "должен быть меньше или равен %{count}"
-        inclusion: "значение не попадает в список"
+        inclusion: "не попадает в список"
+        in: "не входит в диапазон %{count}"
 
       models:
         anoubis/tenant/tenant:
