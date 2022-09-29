@@ -28,7 +28,6 @@ Gem::Specification.new do |s|
   s.add_dependency "redis", ">= 4.5.1"
   s.add_dependency "bcrypt", ">= 3.1.16"
   s.add_dependency "rest-client", ">= 2.1.0"
-  s.add_dependency "mysql2", ">= 0.5.3"
   s.add_dependency "gelf", ">= 3.1.0"
 
   s.add_development_dependency "rake", ">= 0.13"
