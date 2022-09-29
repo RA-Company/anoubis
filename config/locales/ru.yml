@@ -1,7 +1,7 @@
 ru:
   actions:
-      edit: "Редактировать: %{title}"
-      delete: "Удалить: %{title}"
+    edit: "Редактировать: %{title}"
+    delete: "Удалить: %{title}"
   errors:
     no_api_version: "Не указана версия API"
     invalid_locale: "Некорректная версия локали"
@@ -16,6 +16,7 @@ ru:
     delete_error: "Ошибка удаления данных на сервере"
     incorrect_parameters: "Некорректные параметры запроса"
     field_error: "ошибка поля"
+    unknown: "Неизвестная ошибка"
   install:
     menu:
       anoubis/admin:

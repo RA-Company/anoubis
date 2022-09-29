@@ -1,18 +1,22 @@
 en:
+  actions:
+    edit: "Edit: %{title}"
+    delete: "Delete: %{title}"
   errors:
-    no_api_version: API version not defined
-    invalid_locale: Invalid locale
-    access_not_allowed: Access not allowed
-    authentication_required: Authentication required
-    session_expired: Session expired
-    invalid_login_parameters: Invalid login parameters. Required 'login' and 'password'.
-    invalid_login_or_password: Invalid login or password
-    invalid_menu_output: Invalid menu output
-    internal_error: Internal error
-    update_error: Error updating data on server
-    delete_error: Error deleting data on server
-    incorrect_parameters: Incorrect request parameters
-    field_error: field error
+    no_api_version: "API version not defined"
+    invalid_locale: "Invalid locale"
+    access_not_allowed: "Access not allowed"
+    authentication_required: "Authentication required"
+    session_expired: "Session expired"
+    invalid_login_parameters: "Invalid login parameters. Required 'login' and 'password'."
+    invalid_login_or_password: "Invalid login or password"
+    invalid_menu_output: "Invalid menu output"
+    internal_error: "Internal error"
+    update_error: "Error updating data on server"
+    delete_error: "Error deleting data on server"
+    incorrect_parameters: "Incorrect request parameters"
+    field_error: "field error"
+    unknown: "Unknown error"
   install:
     menu:
       anoubis/admin:
