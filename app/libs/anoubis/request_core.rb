@@ -3,13 +3,8 @@
 class Anoubis::RequestCore
   ## Cookies data for current session
   attr_accessor :cookies
-
-  ##
-  # Returns cookies path
-  # @return [String] Cookies path
-  def cookie_path
-    'cookies'
-  end
+  ## Cookies path for store cookies
+  attr_accessor :cookies_path
 
   ##
   # Setups basic initialization parameters.
@@ -17,6 +12,7 @@ class Anoubis::RequestCore
   # @option options [Anoubis::LogService] :log Log service
   def initialize(options = {})
     @cookies = nil
+    @cookies_path = options.key?(:cookies_path) ? options[:cookies_path] : 'cookies'
   end
 
   ##
@@ -42,7 +38,7 @@ class Anoubis::RequestCore
   ##
   # Store current cookies to {https://github.com/redis/redis-rb Redis} cache
   def store_cookies
-    Anoubis::RedisServices::Set.call(cookie_path, cookies)
+    Anoubis::RedisServices::Set.call(@cookies_path, @cookies)
   end
 
   ##
@@ -64,16 +60,6 @@ class Anoubis::RequestCore
     end
 
     result
-  end
-
-  ##
-  # Store data to file
-  # @param file_name [String] Name of file
-  # @param text [String] Saved text
-  def store(file_name, text)
-    file = File.open(file_name, "w")
-    file.write(text)
-    file.close
   end
 
   ##
