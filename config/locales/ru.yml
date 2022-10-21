@@ -36,7 +36,7 @@ ru:
 
 
 
-  anoubis:
+  anoubis1:
     all: "Все"
     success: "Успешное завершение"
     error: "Ошибка"
@@ -272,3 +272,17 @@ ru:
               too_short: "должно быть больше %{count} символов"
               too_long: "должно быть короче %{count} символов"
 
+
+  anoubis:
+    messages:
+      success: "Успешное завершение"
+    errors:
+      unknown: "Неизвестная ошибка"
+      incorrect_parameters: "Некорректные параметры"
+      cant_create_data: "Ошибка создания данных"
+      cant_update_data: "Ошибка обновления данных"
+      cant_destroy_data: "Ошибка удаления данных"
+      create_is_not_allowed: "Создание элемента недоступно"
+      update_is_not_allowed: "Редактирование элемента недоступно"
+      destroy_is_not_allowed: "Удаление элемента недоступно"
+      incorrect_login: "Некорректный логин или пароль"

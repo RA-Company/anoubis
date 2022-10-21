@@ -37,7 +37,7 @@ en:
 
 
 
-  anoubis:
+  anoubis1:
     all: "All"
     success: "Successful"
     error: "Error"
@@ -151,3 +151,16 @@ en:
         page_title: Page Title
         short_title: Short Title
 
+  anoubis:
+    messages:
+      success: "Success"
+    errors:
+      unknown: "Unknown error"
+      incorrect_parameters: "Incorrect parameters"
+      cant_create_data: "Creating data error"
+      cant_update_data: "Updating data error"
+      cant_destroy_data: "Destroying data error"
+      create_is_not_allowed: "Creating data is not allowed"
+      update_is_not_allowed: "Updating data is not allowed"
+      destroy_is_not_allowed: "Destroying data is not allowed"
+      incorrect_login: "Incorrect login or password"
