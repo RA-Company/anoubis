@@ -286,3 +286,4 @@ ru:
       update_is_not_allowed: "Редактирование элемента недоступно"
       destroy_is_not_allowed: "Удаление элемента недоступно"
       incorrect_login: "Некорректный логин или пароль"
+      session_was_expired: "Сессия была завершена"

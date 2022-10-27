@@ -15,7 +15,7 @@ class Anoubis::Result
     update_is_not_allowed: I18n.t('anoubis.errors.update_is_not_allowed'),
     destroy_is_not_allowed: I18n.t('anoubis.errors.destroy_is_not_allowed'),
     incorrect_login: I18n.t('anoubis.errors.incorrect_login'),
-    reserved_11: '',
+    session_was_expired: I18n.t('anoubis.errors.session_was_expired'),
     reserved_12: '',
     reserved_13: '',
     reserved_14: '',
@@ -83,5 +83,18 @@ class Anoubis::Result
     return @custom_result if @result == :custom_result
 
     @messages[@result]
+  end
+
+  ##
+  # Returns Json representation of result
+  def to_json
+    res = {
+      result: result,
+      message: message
+    }
+    res[:data] = data if data
+    res[:errors] = errors if errors
+
+    res
   end
 end
