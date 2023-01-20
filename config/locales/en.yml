@@ -165,3 +165,4 @@ en:
       destroy_is_not_allowed: "Destroying data is not allowed"
       incorrect_login: "Incorrect login or password"
       session_was_expired: "Session was expired"
+      required_new_login: "New login to the system is required"

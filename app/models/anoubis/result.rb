@@ -16,7 +16,7 @@ class Anoubis::Result
     destroy_is_not_allowed: I18n.t('anoubis.errors.destroy_is_not_allowed'),
     incorrect_login: I18n.t('anoubis.errors.incorrect_login'),
     session_was_expired: I18n.t('anoubis.errors.session_was_expired'),
-    reserved_12: '',
+    required_new_login: I18n.t('anoubis.errors.required_new_login'),
     reserved_13: '',
     reserved_14: '',
     reserved_15: '',
