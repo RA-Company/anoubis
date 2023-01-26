@@ -166,3 +166,5 @@ en:
       incorrect_login: "Incorrect login or password"
       session_was_expired: "Session was expired"
       required_new_login: "New login to the system is required"
+      incorrect_response: "Incorrect server response"
+      incorrect_json_data: "Incorrect JSON data"

@@ -288,3 +288,5 @@ ru:
       incorrect_login: "Некорректный логин или пароль"
       session_was_expired: "Сессия была завершена"
       required_new_login: "Требуется повторный вход в систему"
+      incorrect_response: "Некорректный ответ сервера"
+      incorrect_json_data: "Некорректные данные JSON"
