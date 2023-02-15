@@ -11,13 +11,18 @@ class Anoubis::ApiService < Anoubis::ApplicationService
   #   @return [StandardError] returned error
   attr_accessor :error
 
+  # @!attribute result
+  #   @return [Anoubis::Result] result
+  attr_accessor :result
+
   ##
   # Initialize service
   # @param api_url [String] base API url
   # @param auth [String] string for apply to authorization header
-  def initialize(api_url, auth = nil)
+  def initialize(api_url, auth = nil, result = nil)
     @api_url = api_url
     @auth = auth
+    @result = result
   end
 
   ##
@@ -45,6 +50,7 @@ class Anoubis::ApiService < Anoubis::ApplicationService
       )
     rescue StandardError => e
       @error = e
+      @result.result = :incorrect_response if @result
       puts e
       return nil
     end
@@ -55,6 +61,7 @@ class Anoubis::ApiService < Anoubis::ApplicationService
       data = JSON.parse response.body,{ symbolize_names: true }
     rescue StandardError => e
       @error = e
+      @result.result = :incorrect_json_data if @result
       puts e
       return nil
     end

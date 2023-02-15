@@ -1,5 +1,8 @@
 ## [Released]
 
+## [1.0.23] - 2023-02-15
+- Result model was added in Anoubis::ApiService initialization.
+
 ## [1.0.22] - 2023-02-13
 - Anoubis::ApiService was added. Service for create API request and return parsed data.
 
