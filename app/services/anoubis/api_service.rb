@@ -39,10 +39,12 @@ class Anoubis::ApiService < Anoubis::ApplicationService
 
     headers[:Authorization] = @auth
 
+    used_url = "#{@api_url}#{url}"
+
     begin
       response = RestClient::Request.execute(
         method: method,
-        url: "#{@api_url}#{url}",
+        url: used_url,
         payload: payload.to_json,
         headers: headers,
         timeout: timeout,
@@ -51,7 +53,7 @@ class Anoubis::ApiService < Anoubis::ApplicationService
     rescue StandardError => e
       @error = e
       @result.result = :incorrect_response if @result
-      puts e
+      Rails.logger.error "  Anoubis::ApiService request error for URL #{used_url}: #{e}"
       return nil
     end
 
@@ -62,7 +64,7 @@ class Anoubis::ApiService < Anoubis::ApplicationService
     rescue StandardError => e
       @error = e
       @result.result = :incorrect_json_data if @result
-      puts e
+      Rails.logger.error "  Anoubis::ApiService error parsing JSON data for URL #{used_url}: #{e}"
       return nil
     end
 

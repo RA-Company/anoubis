@@ -1,5 +1,8 @@
 ## [Released]
 
+## [1.0.24] - 2023-02-16
+- Anoubis::ApiService errors redirected to Rails.logger.
+
 ## [1.0.23] - 2023-02-15
 - Result model was added in Anoubis::ApiService initialization.
 
