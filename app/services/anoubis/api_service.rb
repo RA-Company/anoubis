@@ -15,6 +15,10 @@ class Anoubis::ApiService < Anoubis::ApplicationService
   #   @return [Anoubis::Result] result
   attr_accessor :result
 
+  # @!attribute error_body
+  #
+  attr_accessor :error_body
+
   ##
   # Initialize service
   # @param api_url [String] base API url
@@ -65,6 +69,19 @@ class Anoubis::ApiService < Anoubis::ApplicationService
       @error = e
       @result.result = :incorrect_json_data if @result
       Rails.logger.error "  Anoubis::ApiService error parsing JSON data for URL #{used_url}: #{e}"
+      return nil
+    end
+
+    data
+  end
+
+  ##
+  # Return error body hash or null if not applicable
+  # @return [Hash] error body if applicable
+  def error_body
+    begin
+      data = JSON.parse @error.response.body,{ symbolize_names: true }
+    rescue
       return nil
     end
 

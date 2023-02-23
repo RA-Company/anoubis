@@ -1,5 +1,8 @@
 ## [Released]
 
+## [1.0.25] - 2023-02-23
+- Function error_body was added to Anoubis::ApiService. This function return Hash symbolized error body from API response.
+
 ## [1.0.24] - 2023-02-16
 - Anoubis::ApiService errors redirected to Rails.logger.
 
