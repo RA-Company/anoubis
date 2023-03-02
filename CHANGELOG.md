@@ -1,5 +1,8 @@
 ## [Released]
 
+## [1.0.26] - 2023-03-03
+- Custom result attribute was added to Result model. 
+
 ## [1.0.25] - 2023-02-23
 - Function error_body was added to Anoubis::ApiService. This function return Hash symbolized error body from API response.
 

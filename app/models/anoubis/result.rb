@@ -44,6 +44,10 @@ class Anoubis::Result
   #   @return [Array | Hash] result error messages if it's presented in API response
   attr_accessor :errors
 
+  # @!attribute custom_result
+  #   @return [String] custom result message text
+  attr_accessor :custom_result
+
   def initialize(msg = {})
     @messages = MESSAGES.merge(msg)
 
