@@ -91,7 +91,7 @@ class Anoubis::Result
 
   ##
   # Returns Hash representation of result
-  def to_h
+  def as_json
     res = {
       result: result,
       message: message
@@ -100,5 +100,11 @@ class Anoubis::Result
     res[:errors] = errors if errors
 
     res
+  end
+
+  ##
+  # Returns Json representation of result
+  def to_json
+    as_json.to_json
   end
 end
