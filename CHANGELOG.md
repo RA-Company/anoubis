@@ -1,5 +1,8 @@
 ## [Released]
 
+## [1.0.27] - 2023-03-19
+- Function to_json was renamed to function to_h because its name is more appropriate.
+
 ## [1.0.26] - 2023-03-03
 - Custom result attribute was added to Result model. 
 

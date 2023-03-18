@@ -90,8 +90,8 @@ class Anoubis::Result
   end
 
   ##
-  # Returns Json representation of result
-  def to_json
+  # Returns Hash representation of result
+  def to_h
     res = {
       result: result,
       message: message
