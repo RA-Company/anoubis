@@ -19,7 +19,7 @@ class Anoubis::Result
     required_new_login: I18n.t('anoubis.errors.required_new_login'),
     incorrect_response: I18n.t('anoubis.errors.incorrect_response'),
     incorrect_json_data: I18n.t('anoubis.errors.incorrect_json_data'),
-    reserved_15: '',
+    access_denied: I18n.t('anoubis.errors.access_denied'),
     reserved_16: '',
     reserved_17: '',
     reserved_18: '',

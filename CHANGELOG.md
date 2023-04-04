@@ -1,5 +1,8 @@
 ## [Released]
 
+## [1.0.28] - 2023-04-04
+- Error :access_denied was added to Result model.
+
 ## [1.0.27] - 2023-03-19
 - Function to_json was renamed to function as_json because its name is more appropriate. Function to_json was added.
 

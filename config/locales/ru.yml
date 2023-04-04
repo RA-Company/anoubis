@@ -290,3 +290,4 @@ ru:
       required_new_login: "Требуется повторный вход в систему"
       incorrect_response: "Некорректный ответ сервера"
       incorrect_json_data: "Некорректные данные JSON"
+      access_denied: "Доступ запрещен"
