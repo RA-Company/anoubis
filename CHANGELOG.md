@@ -1,8 +1,11 @@
 ## [Released]
 
+## [1.0.30] - 2023-07-09
+- HasManualOrder module was removed. Default routes were removed.
+
 ## [1.0.29] - 2023-04-04
 - Calling RedisService::Set method was changed. Data and expiration time were transferred to call method parameters.
-- 
+ 
 ## [1.0.28] - 2023-04-04
 - Error :access_denied was added to Result model.
 

@@ -5,21 +5,21 @@ class Anoubis::Result
   # Default error messages
   MESSAGES = {
     success: I18n.t('anoubis.messages.success'),
-    custom_result: '',
-    unknown: I18n.t('anoubis.errors.unknown'),
-    incorrect_parameters: I18n.t('anoubis.errors.incorrect_parameters'),
-    cant_create_data: I18n.t('anoubis.errors.cant_create_data'),
-    cant_update_data: I18n.t('anoubis.errors.cant_update_data'),
-    cant_destroy_data: I18n.t('anoubis.errors.cant_destroy_data'),
-    create_is_not_allowed: I18n.t('anoubis.errors.create_is_not_allowed'),
-    update_is_not_allowed: I18n.t('anoubis.errors.update_is_not_allowed'),
-    destroy_is_not_allowed: I18n.t('anoubis.errors.destroy_is_not_allowed'),
-    incorrect_login: I18n.t('anoubis.errors.incorrect_login'),
-    session_was_expired: I18n.t('anoubis.errors.session_was_expired'),
-    required_new_login: I18n.t('anoubis.errors.required_new_login'),
-    incorrect_response: I18n.t('anoubis.errors.incorrect_response'),
-    incorrect_json_data: I18n.t('anoubis.errors.incorrect_json_data'),
-    access_denied: I18n.t('anoubis.errors.access_denied'),
+    custom_result: '', # -1
+    unknown: I18n.t('anoubis.errors.unknown'), # -2
+    incorrect_parameters: I18n.t('anoubis.errors.incorrect_parameters'), # -3
+    cant_create_data: I18n.t('anoubis.errors.cant_create_data'), # -4
+    cant_update_data: I18n.t('anoubis.errors.cant_update_data'), # -5
+    cant_destroy_data: I18n.t('anoubis.errors.cant_destroy_data'), # -6
+    create_is_not_allowed: I18n.t('anoubis.errors.create_is_not_allowed'), # -7
+    update_is_not_allowed: I18n.t('anoubis.errors.update_is_not_allowed'), # -8
+    destroy_is_not_allowed: I18n.t('anoubis.errors.destroy_is_not_allowed'), # -9
+    incorrect_login: I18n.t('anoubis.errors.incorrect_login'), # -10
+    session_was_expired: I18n.t('anoubis.errors.session_was_expired'), # -11
+    required_new_login: I18n.t('anoubis.errors.required_new_login'), # -12
+    incorrect_response: I18n.t('anoubis.errors.incorrect_response'), # -13
+    incorrect_json_data: I18n.t('anoubis.errors.incorrect_json_data'), # -14
+    access_denied: I18n.t('anoubis.errors.access_denied'), # -15
     reserved_16: '',
     reserved_17: '',
     reserved_18: '',

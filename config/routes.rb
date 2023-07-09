@@ -3,7 +3,7 @@ Anoubis::Engine.routes.draw do
     begin
       lib_type = Rails.configuration.anubis_type
     rescue
-      lib_type = 'tenant'
+      lib_type = 'simple'
     end
 
 
