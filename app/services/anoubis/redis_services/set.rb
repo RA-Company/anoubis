@@ -2,6 +2,8 @@ class Anoubis::RedisServices::Set < Anoubis::ApplicationService
   include Anoubis::RedisServices::Init
 
   def initialize(key)
+    setup
+
     @key = "#{redis_prefix}#{key}"
   end
 

@@ -2,6 +2,8 @@ class Anoubis::RedisServices::GetJson < Anoubis::ApplicationService
   include Anoubis::RedisServices::Init
 
   def initialize(key)
+    setup
+
     @key = key
   end
 
