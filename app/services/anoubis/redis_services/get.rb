@@ -1,13 +1,23 @@
-class Anoubis::RedisServices::Get < Anoubis::ApplicationService
-  include Anoubis::RedisServices::Init
+##
+# Service for receive data frm Redis database
+class Anoubis::RedisServices::Get < Anoubis::RedisServices::Init
+  ##
+  # Get data from Redis database and convert it from JSON if necessary
+  # @param convert_json [Boolean] convert data from JSON if true
+  # @return [Hash | Array | String | nil] data from Redis database
+  def call(convert_json = false)
+    data = redis.get(key)
 
-  def initialize(key)
-    setup
+    return data unless convert_json
 
-    @key = "#{redis_prefix}#{key}"
-  end
+    return nil unless data
 
-  def call
-    redis.get(@key)
+    begin
+      data = JSON.parse(data, { symbolize_names: true })
+    rescue StandardError => e
+      data = nil
+    end
+
+    data
   end
 end

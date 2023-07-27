@@ -1,7 +1,10 @@
 ## [Released]
 
+## [1.0.32] - 2023-07-27
+- RedisServices::GetJson was mixed into RedisServices::Get with additional parameter
+
 ## [1.0.31] - 2023-07-24
-- Redis database number was added to Redis service initialization. 
+- Redis database number was added to Redis service initialization.
 
 ## [1.0.30] - 2023-07-09
 - HasManualOrder module was removed. Default routes were removed.

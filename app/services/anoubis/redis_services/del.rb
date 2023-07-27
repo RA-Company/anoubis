@@ -1,8 +1,6 @@
-class Anoubis::RedisServices::Del < Anoubis::ApplicationService
-  include Anoubis::RedisServices::Init
-
+class Anoubis::RedisServices::Del < Anoubis::RedisServices::Init
   def initialize(key)
-    setup
+    super key
 
     if key.class == Array
       @key = []
@@ -12,6 +10,10 @@ class Anoubis::RedisServices::Del < Anoubis::ApplicationService
     else
       @key = "#{redis_prefix}#{key}"
     end
+  end
+
+  def key
+    @key
   end
 
   def call
