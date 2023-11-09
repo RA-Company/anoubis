@@ -1,19 +1,26 @@
 class Anoubis::RedisServices::Init < Anoubis::ApplicationService
-  # @!attribute default_host
+  # @!attribute redis_host
   #   @return [String] default Redis database host (default: 127.0.0.1)
   attr_accessor :redis_host
-  # @!attribute default_host
-  #   @return [String] default Redis database port (default: 6379)
+  # @!attribute redis_port
+  #  @return [String] default Redis database port (default: 6379)
   attr_accessor :redis_port
-  # @!attribute default_db
+  # @!attribute redis_db
   #   @return [String] default redis database (default: 0)
   attr_accessor :redis_db
-  # @!attribute default_prefix
+  # @!attribute redis_password
+  #  @return [String] default redis password (default: '')
+  attr_accessor :redis_password
+  # @!attribute redis_prefix
   #  @return [String] default redis prefix (default: '')
   attr_accessor :redis_prefix
   # @!attribute key
   #   @return [String] Redis key
   attr_accessor :key
+
+  # @!attribute redis
+  #   @return [Redis] Redis database connection
+  attr_accessor :redis
 
   ##
   # Initialize service
@@ -40,6 +47,12 @@ class Anoubis::RedisServices::Init < Anoubis::ApplicationService
     end
 
     begin
+      self.redis_password = Rails.configuration.redis_password
+    rescue
+      @redis_prefix = ''
+    end
+
+    begin
       @redis_db = Rails.configuration.redis_db.to_s.to_i
     rescue
       @redis_db = 0
@@ -60,7 +73,18 @@ class Anoubis::RedisServices::Init < Anoubis::ApplicationService
   # Return Redis database connection according by defined parameters
   # @return [Redis] Redis database connection
   def redis
-    Redis.new( host: redis_host, port: redis_port, db: redis_db )
+    @redis ||= get_redis
+  end
+
+  private def get_redis
+    options = {
+      host: redis_host,
+      port: redis_port,
+      db: redis_db
+    }
+    options[:password] = redis_password if redis_password != ''
+
+    Redis.new(options)
   end
 
   ##

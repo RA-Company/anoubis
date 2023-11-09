@@ -1,5 +1,8 @@
 ## [Released]
 
+## [1.0.33] - 2023-11-09
+- Password was added to Redis service initialization.
+
 ## [1.0.32] - 2023-07-27
 - RedisServices::GetJson was mixed into RedisServices::Get with additional parameter
 
